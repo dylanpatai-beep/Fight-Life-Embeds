@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TFL LEARNING OS // PERSONAL CURRICULUM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --fight-red: #CC0000;
+    --fight-red-dim: #8B0000;
+    --fight-red-glow: rgba(204, 0, 0, 0.15);
+    --deep-black: #0A0A0A;
+    --soft-black: #141414;
+    --steel: #1F1F1F;
+    --steel-light: #2A2A2A;
+    --bone: #E8E6E3;
+    --bone-dim: #9A9794;
+    --bone-faint: #555250;
+    --green: #5EBB5E;
+    --amber: #E8A93B;
+    --display: 'Bebas Neue', 'Oswald', 'Arial Narrow', sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    background: var(--deep-black);
+    color: var(--bone);
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-image:
+      linear-gradient(var(--steel) 1px, transparent 1px),
+      linear-gradient(90deg, var(--steel) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse at top, var(--fight-red-glow) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .scanline {
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(to bottom, transparent 0, transparent 2px, rgba(0,0,0,0.03) 3px);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 32px 80px;
+  }
+
+  /* ========== HEADER ========== */
+  .header {
+    border-top: 4px solid var(--fight-red);
+    border-bottom: 1px solid var(--steel-light);
+    padding: 24px 0 32px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 32px;
+    align-items: end;
+  }
+
+  .header-mark { display: flex; align-items: center; gap: 16px; }
+
+  .asterisk { width: 56px; height: 56px; position: relative; flex-shrink: 0; }
+  .asterisk::before, .asterisk::after, .asterisk-bar {
+    content: ''; position: absolute; background: var(--fight-red); top: 50%; left: 50%;
+  }
+  .asterisk::before { width: 6px; height: 100%; transform: translate(-50%, -50%); }
+  .asterisk::after { width: 100%; height: 6px; transform: translate(-50%, -50%); }
+  .asterisk-bar { width: 100%; height: 6px; transform: translate(-50%, -50%) rotate(45deg); }
+  .asterisk-bar.alt { transform: translate(-50%, -50%) rotate(-45deg); }
+
+  .title-block h1 {
+    font-family: var(--display);
+    font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+  }
+  .title-block h1 span { color: var(--fight-red); }
+  .title-block .subtitle {
+    font-family: var(--mono);
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.3em;
+    color: var(--bone-dim); margin-top: 8px;
+  }
+
+  .header-meta {
+    text-align: right; font-family: var(--mono);
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em;
+    color: var(--bone-faint); line-height: 1.8;
+  }
+  .header-meta .live { color: var(--fight-red); display: inline-flex; align-items: center; gap: 6px; }
+  .header-meta .live::before {
+    content: ''; width: 8px; height: 8px; background: var(--fight-red);
+    border-radius: 50%; animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  /* ========== TABS ========== */
+  .tabs {
+    display: flex; border-bottom: 1px solid var(--steel-light);
+    margin-bottom: 48px; overflow-x: auto;
+  }
+  .tab {
+    background: none; border: none; color: var(--bone-faint);
+    font-family: var(--display); font-size: 18px; letter-spacing: 0.08em;
+    padding: 20px 24px; cursor: pointer; transition: all 0.2s ease;
+    border-bottom: 3px solid transparent; margin-bottom: -1px; white-space: nowrap;
+  }
+  .tab:hover { color: var(--bone); }
+  .tab.active { color: var(--bone); border-bottom-color: var(--fight-red); }
+  .tab .num { font-family: var(--mono); font-size: 10px; color: var(--fight-red); margin-right: 8px; }
+
+  .tab-panel { display: none; animation: fadeIn 0.4s ease; }
+  .tab-panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ========== SECTION HEADERS ========== */
+  .section-title {
+    font-family: var(--display); font-size: 36px; letter-spacing: 0.04em; margin-bottom: 8px;
+  }
+  .section-title.sub { margin-top: 56px; }
+  .section-subtitle {
+    font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.25em;
+    color: var(--bone-dim); margin-bottom: 32px; padding-bottom: 16px;
+    border-bottom: 1px solid var(--steel-light);
+  }
+  .section-subtitle .red { color: var(--fight-red); }
+
+  .lede {
+    font-size: 15px; color: var(--bone-dim); max-width: 68ch; margin-bottom: 32px; line-height: 1.7;
+  }
+  .lede strong { color: var(--bone); font-weight: 600; }
+
+  /* ========== PILLAR GROUPS ========== */
+  .pillar-group { margin-bottom: 32px; border: 1px solid var(--steel-light); background: var(--soft-black); }
+  .pillar-head {
+    display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+    padding: 16px 24px; border-bottom: 1px solid var(--steel-light); background: var(--steel);
+  }
+  .pillar-head .name { font-family: var(--display); font-size: 24px; letter-spacing: 0.06em; }
+  .pillar-head .role {
+    font-family: var(--mono); font-size: 10px; text-transform: uppercase;
+    letter-spacing: 0.2em; color: var(--bone-faint); margin-left: auto;
+  }
+  .pillar-group.engine { border-color: var(--fight-red-dim); }
+  .pillar-group.engine .pillar-head { background: rgba(204,0,0,0.08); }
+  .pillar-group.engine .pillar-head .name { color: var(--fight-red); }
+
+  .topic-row {
+    display: grid; grid-template-columns: 48px 1fr auto auto; gap: 16px;
+    align-items: center; padding: 16px 24px; border-bottom: 1px solid var(--steel);
+    transition: background 0.2s ease;
+  }
+  .topic-row:last-child { border-bottom: none; }
+  .topic-row:hover { background: var(--steel); }
+  .topic-num { font-family: var(--mono); font-size: 12px; color: var(--fight-red); }
+  .topic-name { font-size: 15px; font-weight: 600; }
+  .topic-name em { display: block; font-style: normal; font-weight: 400; font-size: 12px; color: var(--bone-faint); margin-top: 2px; }
+
+  .chip {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 5px 10px; border: 1px solid var(--steel-light); color: var(--bone-dim); white-space: nowrap;
+  }
+  .chip.lvl4 { border-color: var(--fight-red); color: var(--fight-red); }
+  .chip.lvl3 { border-color: var(--amber); color: var(--amber); }
+  .chip.lvl2 { border-color: var(--bone-faint); color: var(--bone-dim); }
+  .chip.lvl1 { border-color: var(--steel-light); color: var(--bone-faint); }
+  .chip.laneA { border-color: var(--fight-red); color: var(--fight-red); }
+  .chip.laneB { border-color: var(--green); color: var(--green); }
+  .chip.laneC { border-color: var(--steel-light); color: var(--bone-faint); }
+
+  /* ========== LADDER ========== */
+  .ladder { display: grid; gap: 0; margin-bottom: 24px; }
+  .rung {
+    border: 1px solid var(--steel-light); border-bottom: none;
+    background: var(--soft-black); padding: 20px 24px;
+    display: grid; grid-template-columns: 140px 1fr 90px; gap: 20px; align-items: center;
+  }
+  .rung:last-child { border-bottom: 1px solid var(--steel-light); }
+  .rung .lname { font-family: var(--display); font-size: 20px; letter-spacing: 0.06em; }
+  .rung .ldesc { font-size: 14px; color: var(--bone-dim); }
+  .rung .lcost { font-family: var(--mono); font-size: 11px; color: var(--bone-faint); text-align: right; }
+  .rung.r4 { border-left: 3px solid var(--fight-red); }
+  .rung.r4 .lname { color: var(--fight-red); }
+  .rung.r3 { border-left: 3px solid var(--amber); }
+  .rung.r3 .lname { color: var(--amber); }
+  .rung.r2 { border-left: 3px solid var(--bone-faint); }
+  .rung.r1 { border-left: 3px solid var(--steel-light); }
+
+  /* ========== LOOP ========== */
+  .loop { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-bottom: 40px; }
+  .loop-step {
+    border: 1px solid var(--steel-light); border-right: none; background: var(--soft-black);
+    padding: 24px 20px; position: relative; transition: all 0.2s ease;
+  }
+  .loop-step:last-child { border-right: 1px solid var(--steel-light); }
+  .loop-step:hover { background: var(--steel); }
+  .loop-step .stepnum { font-family: var(--mono); font-size: 10px; color: var(--fight-red); letter-spacing: 0.2em; }
+  .loop-step .stepname {
+    font-family: var(--display); font-size: 26px; letter-spacing: 0.05em; margin: 8px 0 6px;
+  }
+  .loop-step .stepmeta {
+    font-family: var(--mono); font-size: 10px; text-transform: uppercase;
+    letter-spacing: 0.15em; color: var(--bone-faint); margin-bottom: 12px;
+  }
+  .loop-step .steptool {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+    color: var(--fight-red); border-top: 1px solid var(--steel-light); padding-top: 10px; margin-top: 12px;
+  }
+  .loop-step p { font-size: 13px; color: var(--bone-dim); line-height: 1.6; }
+
+  .callout {
+    border-left: 3px solid var(--fight-red); background: var(--soft-black);
+    padding: 20px 24px; margin: 24px 0; font-size: 14px; color: var(--bone-dim); line-height: 1.7;
+  }
+  .callout strong { color: var(--bone); font-weight: 600; }
+  .callout .tag {
+    display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--fight-red); margin-bottom: 8px;
+  }
+
+  /* ========== LANES ========== */
+  .lanes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--steel-light); margin-bottom: 40px; }
+  .lane { background: var(--soft-black); padding: 28px 24px; }
+  .lane .ltag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; }
+  .lane .lhead { font-family: var(--display); font-size: 30px; letter-spacing: 0.05em; margin: 8px 0 4px; }
+  .lane .lslots { font-family: var(--mono); font-size: 11px; color: var(--bone-faint); margin-bottom: 14px; }
+  .lane p { font-size: 13px; color: var(--bone-dim); line-height: 1.65; }
+  .lane.a { border-top: 3px solid var(--fight-red); }
+  .lane.a .ltag, .lane.a .lhead { color: var(--fight-red); }
+  .lane.b { border-top: 3px solid var(--green); }
+  .lane.b .ltag, .lane.b .lhead { color: var(--green); }
+  .lane.c { border-top: 3px solid var(--bone-faint); }
+  .lane.c .ltag, .lane.c .lhead { color: var(--bone-dim); }
+
+  /* ========== TABLE ========== */
+  .tbl-wrap { overflow-x: auto; border: 1px solid var(--steel-light); margin-bottom: 40px; }
+  table { width: 100%; border-collapse: collapse; background: var(--soft-black); min-width: 560px; }
+  th {
+    font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em;
+    color: var(--bone-faint); text-align: left; padding: 14px 20px;
+    border-bottom: 1px solid var(--steel-light); background: var(--steel); white-space: nowrap;
+  }
+  td { padding: 16px 20px; font-size: 14px; color: var(--bone-dim); border-bottom: 1px solid var(--steel); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  td strong { color: var(--bone); font-weight: 600; }
+  td .k { font-family: var(--mono); font-size: 12px; color: var(--fight-red); }
+
+  /* ========== TIMELINE ========== */
+  .timeline { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3px; margin-bottom: 16px; }
+  .wk {
+    background: var(--steel); border-top: 3px solid var(--steel-light);
+    padding: 14px 6px; text-align: center; transition: all 0.2s ease; cursor: default;
+  }
+  .wk:hover { background: var(--steel-light); }
+  .wk .n { font-family: var(--mono); font-size: 10px; color: var(--bone-faint); }
+  .wk .l { font-family: var(--display); font-size: 13px; letter-spacing: 0.04em; margin-top: 4px; color: var(--bone-dim); }
+  .wk.map { border-top-color: var(--fight-red); }
+  .wk.map .l { color: var(--fight-red); }
+  .wk.unit { border-top-color: var(--bone-faint); }
+  .wk.synth { border-top-color: var(--amber); }
+  .wk.synth .l { color: var(--amber); }
+  .wk.teach { border-top-color: var(--green); }
+  .wk.teach .l { color: var(--green); }
+
+  /* ========== CODE BLOCK ========== */
+  pre {
+    background: #0D0D0D; border: 1px solid var(--steel-light); border-left: 3px solid var(--fight-red);
+    padding: 24px; overflow-x: auto; font-family: var(--mono); font-size: 12.5px;
+    line-height: 1.75; color: var(--bone-dim); margin-bottom: 40px;
+  }
+  pre .c { color: var(--fight-red); }
+  pre .d { color: var(--bone-faint); }
+
+  /* ========== METRICS ========== */
+  .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--steel-light); margin-bottom: 40px; }
+  .metric { background: var(--soft-black); padding: 32px 24px; text-align: center; }
+  .metric .val { font-family: var(--display); font-size: 52px; color: var(--fight-red); line-height: 1; }
+  .metric .lbl {
+    font-family: var(--mono); font-size: 10px; text-transform: uppercase;
+    letter-spacing: 0.2em; color: var(--bone-dim); margin-top: 12px;
+  }
+  .metric .sub { font-size: 12px; color: var(--bone-faint); margin-top: 6px; }
+
+  /* ========== CHECKLIST ========== */
+  .check-list { border: 1px solid var(--steel-light); background: var(--soft-black); margin-bottom: 16px; }
+  .check-item {
+    display: flex; align-items: flex-start; gap: 16px; padding: 16px 24px;
+    border-bottom: 1px solid var(--steel); cursor: pointer; transition: background 0.2s ease;
+  }
+  .check-item:last-child { border-bottom: none; }
+  .check-item:hover { background: var(--steel); }
+  .check-box {
+    width: 18px; height: 18px; border: 1px solid var(--bone-faint); flex-shrink: 0;
+    margin-top: 2px; display: flex; align-items: center; justify-content: center;
+    font-size: 12px; color: var(--deep-black); transition: all 0.2s ease;
+  }
+  .check-item.done .check-box { background: var(--fight-red); border-color: var(--fight-red); }
+  .check-item.done .check-box::after { content: '✓'; color: #fff; font-size: 12px; font-weight: 700; }
+  .check-item.done .check-text { color: var(--bone-faint); text-decoration: line-through; }
+  .check-text { font-size: 14px; color: var(--bone); }
+  .check-text .day { font-family: var(--mono); font-size: 10px; color: var(--fight-red); letter-spacing: 0.15em; margin-right: 10px; }
+
+  .reset-btn {
+    background: none; border: 1px solid var(--steel-light); color: var(--bone-faint);
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 10px 18px; cursor: pointer; transition: all 0.2s ease;
+  }
+  .reset-btn:hover { border-color: var(--fight-red); color: var(--fight-red); }
+
+  /* ========== FOOTER ========== */
+  .footer {
+    margin-top: 80px; padding-top: 24px; border-top: 1px solid var(--steel-light);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-family: var(--mono); font-size: 10px; text-transform: uppercase;
+    letter-spacing: 0.2em; color: var(--bone-faint);
+  }
+  .footer .red { color: var(--fight-red); }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 1000px) {
+    .loop { grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--steel-light); }
+    .loop-step { border: none; }
+    .lanes { grid-template-columns: 1fr; }
+    .timeline { grid-template-columns: repeat(6, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .container { padding: 24px 16px 60px; }
+    .header { grid-template-columns: 1fr; align-items: start; gap: 16px; }
+    .header-meta { text-align: left; }
+    .loop { grid-template-columns: 1fr; }
+    .metrics { grid-template-columns: 1fr; }
+    .rung { grid-template-columns: 1fr; gap: 6px; }
+    .rung .lcost { text-align: left; }
+    .topic-row { grid-template-columns: 32px 1fr; }
+    .topic-row .chip { grid-column: 2; justify-self: start; }
+    .timeline { grid-template-columns: repeat(4, 1fr); }
+    .tab { padding: 16px 14px; font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="scanline"></div>
+<div class="container">
+
+  <header class="header">
+    <div class="header-mark">
+      <div class="asterisk"><div class="asterisk-bar"></div><div class="asterisk-bar alt"></div></div>
+    </div>
+    <div class="title-block">
+      <h1>TFL <span>LEARNING</span> OS</h1>
+      <div class="subtitle">// PERSONAL CURRICULUM · L03 · FEEDS OUTPUTS</div>
+    </div>
+    <div class="header-meta">
+      <div class="live">SYSTEM ACTIVE</div><br>
+      v0.1 · 10 TOPICS · 4 PILLARS<br>
+      EARN THE LIFE.
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="map"><span class="num">01</span>TOPIC MAP</button>
+    <button class="tab" data-tab="loop"><span class="num">02</span>THE LOOP</button>
+    <button class="tab" data-tab="cycle"><span class="num">03</span>LANES &amp; CYCLE</button>
+    <button class="tab" data-tab="tools"><span class="num">04</span>TOOLING</button>
+    <button class="tab" data-tab="guard"><span class="num">05</span>GUARDRAILS</button>
+  </nav>
+
+  <!-- ============ 01 TOPIC MAP ============ -->
+  <section class="tab-panel active" id="map">
+    <h2 class="section-title">TOPIC MAP</h2>
+    <div class="section-subtitle">// 8 SUBJECTS <span class="red">+</span> 2 ENGINES <span class="red">·</span> MAPPED ONTO THE FOUR PILLARS</div>
+
+    <p class="lede">
+      A list of ten topics is a <strong>menu</strong>, not a curriculum. A curriculum adds four things:
+      sequence, a depth target, evidence of learning, and a forcing function. The Fight Life is
+      already the forcing function &mdash; a published piece is a deadline with an audience attached.
+      <strong>You learn by owing the internet an explanation.</strong>
+    </p>
+
+    <div class="pillar-group">
+      <div class="pillar-head"><span class="name">MARTIAL ARTS</span><span class="role">PILLAR 01 · THE CRAFT</span></div>
+      <div class="topic-row">
+        <span class="topic-num">01</span>
+        <span class="topic-name">Martial Arts<em>Training · competing · disciplines</em></span>
+        <span class="chip lvl4">TARGET L4</span><span class="chip laneB">LANE B</span>
+      </div>
+    </div>
+
+    <div class="pillar-group">
+      <div class="pillar-head"><span class="name">BODY</span><span class="role">PILLAR 02 · THE VEHICLE</span></div>
+      <div class="topic-row">
+        <span class="topic-num">02</span>
+        <span class="topic-name">Cooking / Nutrition / Diet<em>Fuel, protocols, what actually gets eaten</em></span>
+        <span class="chip lvl2">TARGET L2</span><span class="chip laneB">LANE B</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">03</span>
+        <span class="topic-name">Fitness &mdash; S&amp;C, body mechanics<em>Strength, conditioning, movement quality</em></span>
+        <span class="chip lvl3">TARGET L3</span><span class="chip laneC">LANE C</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">04</span>
+        <span class="topic-name">Paramedicine<em>Meds · supplements · vitals · pathophysiology</em></span>
+        <span class="chip lvl3">TARGET L3</span><span class="chip laneB">LANE B</span>
+      </div>
+    </div>
+
+    <div class="pillar-group">
+      <div class="pillar-head"><span class="name">MIND</span><span class="role">PILLAR 03 · THE OPERATOR</span></div>
+      <div class="topic-row">
+        <span class="topic-num">08</span>
+        <span class="topic-name">Psychology<em>Self-help · psychedelics · performance under pressure</em></span>
+        <span class="chip lvl2">TARGET L2</span><span class="chip laneC">LANE C</span>
+      </div>
+    </div>
+
+    <div class="pillar-group">
+      <div class="pillar-head"><span class="name">CULTURE</span><span class="role">PILLAR 04 · THE WORLD</span></div>
+      <div class="topic-row">
+        <span class="topic-num">05</span>
+        <span class="topic-name">Music / Art / Dance<em>Expression · rhythm · pattern</em></span>
+        <span class="chip lvl1">TARGET L1&ndash;2</span><span class="chip laneC">LANE C</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">06</span>
+        <span class="topic-name">Travel / Language<em>One language. Not five.</em></span>
+        <span class="chip lvl2">TARGET L2</span><span class="chip laneC">LANE C</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">07</span>
+        <span class="topic-name">Culture<em>Religion · history · tradition</em></span>
+        <span class="chip lvl1">TARGET L1</span><span class="chip laneC">LANE C</span>
+      </div>
+    </div>
+
+    <div class="pillar-group engine">
+      <div class="pillar-head"><span class="name">CRAFT</span><span class="role">NOT A PILLAR · THE ENGINE</span></div>
+      <div class="topic-row">
+        <span class="topic-num">09</span>
+        <span class="topic-name">Content Creation w/ AI<em>How everything else escapes your head</em></span>
+        <span class="chip lvl3">TARGET L3</span><span class="chip laneA">LANE A</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">10</span>
+        <span class="topic-name">Business<em>How the life pays for itself</em></span>
+        <span class="chip lvl2">TARGET L2</span><span class="chip laneC">LANE C</span>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="tag">THE FIRST CORRECTION</span>
+      Items <strong>09</strong> and <strong>10</strong> are not peers of the other eight. They're the
+      delivery system &mdash; the engine the other eight run through. You never study content creation
+      in the abstract; you study it <strong>while shipping something from another topic</strong>.
+      Treating them as equal lanes is the fastest way to end up with ten open tabs and nothing finished.
+    </div>
+
+    <div class="callout">
+      <span class="tag">CROSS-CUTTING LENSES · NOT LANES</span>
+      Psychology · Patterns/Art · Language · Organization · Design/Branding · Science.
+      These recur <strong>inside</strong> every topic. Giving each one its own study lane triples the
+      surface area and finishes nothing.
+    </div>
+
+    <h2 class="section-title sub">DEPTH LADDER</h2>
+    <div class="section-subtitle">// DECIDE THE CEILING <span class="red">BEFORE</span> YOU START</div>
+
+    <p class="lede">
+      You are not going to master ten things. Setting a ceiling per topic is the highest-leverage
+      decision in the system. <strong>Aiming L1 at something is not failure</strong> &mdash; it's the
+      decision that makes L4 possible somewhere else.
+    </p>
+
+    <div class="ladder">
+      <div class="rung r4">
+        <span class="lname">L4 · AUTHORITY</span>
+        <span class="ldesc">Produces original work. Other people cite you.</span>
+        <span class="lcost">YEARS</span>
+      </div>
+      <div class="rung r3">
+        <span class="lname">L3 · PRACTITIONER</span>
+        <span class="ldesc">Can coach someone else through it. Handles the edge cases.</span>
+        <span class="lcost">300+ HRS</span>
+      </div>
+      <div class="rung r2">
+        <span class="lname">L2 · APPLIED</span>
+        <span class="ldesc">Can do the thing unsupervised under normal conditions.</span>
+        <span class="lcost">50&ndash;100 HRS</span>
+      </div>
+      <div class="rung r1">
+        <span class="lname">L1 · LITERATE</span>
+        <span class="ldesc">Knows the map and the vocabulary. Can hold a real conversation.</span>
+        <span class="lcost">~10 HRS</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 THE LOOP ============ -->
+  <section class="tab-panel" id="loop">
+    <h2 class="section-title">THE WEEKLY LOOP</h2>
+    <div class="section-subtitle">// FIVE MOVES <span class="red">·</span> THIS IS THE ENGINE <span class="red">·</span> EVERYTHING ELSE IS SCAFFOLDING</div>
+
+    <div class="loop">
+      <div class="loop-step">
+        <div class="stepnum">01</div>
+        <div class="stepname">CAPTURE</div>
+        <div class="stepmeta">DAILY · 5 MIN</div>
+        <p>Everything lands in one inbox. Voice note in the car after training. Photo of a notebook page. Link. No sorting, no tagging &mdash; the skill here is <em>not thinking</em>.</p>
+        <div class="steptool">VOICE MEMO / INBOX</div>
+      </div>
+      <div class="loop-step">
+        <div class="stepnum">02</div>
+        <div class="stepname">INTERROGATE</div>
+        <div class="stepmeta">2×/WK · 45 MIN</div>
+        <p>Attack your sources with questions, not summaries. Grounded in your own material and cited, so every claim is checkable. Audio Overview goes on in the car &mdash; a second pass for free.</p>
+        <div class="steptool">NOTEBOOKLM</div>
+      </div>
+      <div class="loop-step">
+        <div class="stepnum">03</div>
+        <div class="stepname">COMPRESS</div>
+        <div class="stepmeta">1×/WK · 30 MIN</div>
+        <p>One page. Your words. From memory. Sources closed. This is the first moment your brain does the work &mdash; everything before it was input.</p>
+        <div class="steptool">YOU → CLAUDE GRADES IT</div>
+      </div>
+      <div class="loop-step">
+        <div class="stepnum">04</div>
+        <div class="stepname">SHIP</div>
+        <div class="stepmeta">1×/WK · ONE RECEIPT</div>
+        <p>Reel, carousel, thread, short. Teaching in public is the final exam and the only step that compounds outside your own head.</p>
+        <div class="steptool">THE FIGHT LIFE</div>
+      </div>
+      <div class="loop-step">
+        <div class="stepnum">05</div>
+        <div class="stepname">REVIEW</div>
+        <div class="stepmeta">WKLY 20 · QTRLY 90</div>
+        <p>Reread <em>your own</em> compressions, not strangers' notes. Weekly: last four. Quarterly: the whole cycle, then pick what's next.</p>
+        <div class="steptool">NOTION</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="tag">THE NON-NEGOTIABLE</span>
+      <strong>You write the compression. Claude grades it.</strong> The moment you let AI write the
+      one-pager, you've automated away the only step that was making you smarter &mdash; and it will
+      feel more productive than ever. Prompt it like this:
+      <em>"Here's my one-pager on X. Don't rewrite it. Find what I got wrong, what I hand-waved,
+      and what I left out that a practitioner would consider essential."</em>
+    </div>
+
+    <h2 class="section-title sub">BETTER QUESTIONS</h2>
+    <div class="section-subtitle">// "SUMMARIZE THIS" IS THE WEAKEST PROMPT YOU OWN</div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Instead of</th><th>Ask</th><th>Why it works</th></tr></thead>
+        <tbody>
+          <tr><td><strong>"Summarize this"</strong></td><td>What does this source <em>assume</em> that it never states?</td><td>Surfaces the frame, which is where the real content lives</td></tr>
+          <tr><td><strong>"Explain X"</strong></td><td>Where do these two sources actually disagree, and who's right?</td><td>Conflict is the fastest route to understanding a field</td></tr>
+          <tr><td><strong>"Key takeaways"</strong></td><td>Give me the 5 questions I must answer to prove I understand this.</td><td>Converts reading into a test you can fail</td></tr>
+          <tr><td><strong>"Is this good advice"</strong></td><td>What's the practitioner's version of this vs. the textbook's?</td><td>The gap between them is your content</td></tr>
+          <tr><td><strong>"Tell me about Y"</strong></td><td>What would a skeptic in this field say about chapter 4?</td><td>Pre-loads the objection before an audience makes it</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 03 LANES & CYCLE ============ -->
+  <section class="tab-panel" id="cycle">
+    <h2 class="section-title">THREE LANES</h2>
+    <div class="section-subtitle">// TEN-TOPIC CURRICULA DIE BECAUSE ALL TEN OPEN AT ONCE</div>
+
+    <div class="lanes">
+      <div class="lane a">
+        <div class="ltag">LANE A</div>
+        <div class="lhead">DEEP</div>
+        <div class="lslots">1 TOPIC · 5 HRS/WEEK · 12 WEEKS</div>
+        <p>One 12-week cycle producing a flagship artifact. Rotates every quarter. <strong>Only one topic is ever in Lane A.</strong> This is where deliberate study time is spent.</p>
+      </div>
+      <div class="lane b">
+        <div class="ltag">LANE B</div>
+        <div class="lhead">WORKING</div>
+        <div class="lslots">2 TOPICS · 0 EXTRA HRS</div>
+        <p>Already inside your daily life &mdash; training, the job, food. No study time allocated. The work is <strong>documentation, not study</strong>. Cheapest content you'll ever make.</p>
+      </div>
+      <div class="lane c">
+        <div class="ltag">LANE C</div>
+        <div class="lhead">AMBIENT</div>
+        <div class="lslots">EVERYTHING ELSE · NO OBLIGATION</div>
+        <p>Podcasts on the drive, rabbit holes, books before bed. <strong>Capture only.</strong> Nothing in Lane C is allowed to generate guilt. It feeds the inbox so Lane A never starts cold.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="tag">THE ARITHMETIC</span>
+      Four quarters a year × 3 years = <strong>12 deep cycles</strong>. Every topic gets one; the
+      important ones get two. That's a real curriculum with a real end date &mdash; instead of ten
+      topics permanently at 15%.
+    </div>
+
+    <h2 class="section-title sub">ROTATION</h2>
+    <div class="section-subtitle">// START WITH THE MULTIPLIER, NOT THE FAVOURITE</div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Quarter</th><th>Lane A — Deep</th><th>Lane B — Working</th><th>Flagship artifact</th></tr></thead>
+        <tbody>
+          <tr><td><span class="k">Q1</span></td><td><strong>Content Creation w/ AI</strong></td><td>Martial Arts · Paramedicine</td><td>The TFL content engine, built in public</td></tr>
+          <tr><td><span class="k">Q2</span></td><td><strong>Fitness — S&amp;C / body mechanics</strong></td><td>Martial Arts · Nutrition</td><td>Your own programming, documented + tested on you</td></tr>
+          <tr><td><span class="k">Q3</span></td><td><strong>Paramedicine — patho + pharm</strong></td><td>Martial Arts · Fitness</td><td>A teaching series only a working medic could make</td></tr>
+          <tr><td><span class="k">Q4</span></td><td><strong>Psychology</strong></td><td>Martial Arts · Nutrition</td><td>Long-form on performance under pressure</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <span class="tag">WHY CONTENT-AI GOES FIRST</span>
+      Not because it's the most interesting &mdash; because it's the <strong>multiplier</strong>. Every
+      cycle after it ships faster. And you'd be studying it <em>by</em> documenting martial arts and
+      the job, so nothing you actually care about gets paused to make room for it.
+    </div>
+
+    <h2 class="section-title sub">THE 12-WEEK CYCLE</h2>
+    <div class="section-subtitle">// ONE CYCLE SHOULD PRODUCE <span class="red">18&ndash;24</span> PIECES OF CONTENT</div>
+
+    <div class="timeline">
+      <div class="wk map"><div class="n">W01</div><div class="l">MAP</div></div>
+      <div class="wk unit"><div class="n">W02</div><div class="l">U1</div></div>
+      <div class="wk unit"><div class="n">W03</div><div class="l">U1</div></div>
+      <div class="wk unit"><div class="n">W04</div><div class="l">U2</div></div>
+      <div class="wk unit"><div class="n">W05</div><div class="l">U2</div></div>
+      <div class="wk unit"><div class="n">W06</div><div class="l">U3</div></div>
+      <div class="wk unit"><div class="n">W07</div><div class="l">U3</div></div>
+      <div class="wk unit"><div class="n">W08</div><div class="l">U4</div></div>
+      <div class="wk unit"><div class="n">W09</div><div class="l">U4</div></div>
+      <div class="wk synth"><div class="n">W10</div><div class="l">BUILD</div></div>
+      <div class="wk teach"><div class="n">W11</div><div class="l">TEACH</div></div>
+      <div class="wk map"><div class="n">W12</div><div class="l">REVIEW</div></div>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Week</th><th>Work</th></tr></thead>
+        <tbody>
+          <tr><td><span class="k">01</span></td><td>Survey. Build the 5-source stack. Write the module spec. <strong>Ship:</strong> "I'm learning X — here's the map."</td></tr>
+          <tr><td><span class="k">02&ndash;09</span></td><td>Four units, two weeks each. The weekly loop runs the whole time — one compression and one receipt per week.</td></tr>
+          <tr><td><span class="k">10</span></td><td>Synthesis. Build the flagship artifact — the thing that proves the level was reached.</td></tr>
+          <tr><td><span class="k">11</span></td><td>Teach it. Long-form: video, essay, or a full carousel series.</td></tr>
+          <tr><td><span class="k">12</span></td><td>Review. Score yourself against the level definition. Pick the next Lane A topic.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="section-title sub">MODULE SPEC</h2>
+    <div class="section-subtitle">// FILL THIS IN ONCE PER CYCLE <span class="red">·</span> NOT TEN TIMES UP FRONT</div>
+
+<pre><span class="c"># MODULE:</span> [topic]
+CYCLE:        Q_ 20__          PILLAR: [ ]
+CURRENT:      L_               TARGET: L_
+WHY NOW:      <span class="d">[one sentence — what in the life this unlocks]</span>
+
+<span class="c">## SOURCE STACK</span>  <span class="d">(hard cap: 5)</span>
+1. TEXTBOOK      — the canonical/systematic one
+2. PRACTITIONER  — someone who does it, not just teaches it
+3. COURSE/VIDEO  — for the motor and visual parts
+4. PRIMARY       — a paper, a manual, a protocol, an original text
+5. COMMUNITY     — a forum, a coach, a person you can ask
+
+<span class="c">## UNITS</span>  <span class="d">(4 × 2 weeks + synthesis)</span>
+U1 — Question it answers: ____   Artifact: ____   Drill: ____
+U2 — ...
+U3 — ...
+U4 — ...
+
+<span class="c">## EVIDENCE OF COMPLETION</span>
+<span class="d">[the flagship artifact — proof the target level was reached]</span>
+
+<span class="c">## CONTENT ANGLES</span>  <span class="d">(3 per unit = 12–18 pieces)</span>
+U1: hook / myth to break / the thing nobody tells you
+U2: ...</pre>
+
+    <div class="callout">
+      <span class="tag">THE SOURCE CAP IS THE POINT</span>
+      Five sources you finish beats forty you collect. <strong>Collecting sources feels exactly like
+      learning and is not.</strong> No new source enters the stack until one is finished.
+    </div>
+  </section>
+
+  <!-- ============ 04 TOOLING ============ -->
+  <section class="tab-panel" id="tools">
+    <h2 class="section-title">TOOL ROUTING</h2>
+    <div class="section-subtitle">// WRONG QUESTION: "WHICH AI?" <span class="red">·</span> RIGHT QUESTION: "WHICH ROOM AM I IN?"</div>
+
+    <p class="lede">
+      Every tool is a room with one job. The failure isn't picking the wrong tool &mdash; it's using
+      one tool for all five jobs and wondering why the output feels generic.
+    </p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Tool</th><th>Room</th><th>Job</th><th>Don't use it for</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>NotebookLM</strong></td><td><span class="k">THE CLASSROOM</span></td>
+            <td>Interrogating sources <em>you</em> loaded. Cited answers you can check against the page. Audio Overviews for the drive.</td>
+            <td>Drafting content — it's grounded in sources, not in your voice</td>
+          </tr>
+          <tr>
+            <td><strong>Claude Projects</strong></td><td><span class="k">STUDIO + COACH</span></td>
+            <td>Drafting in your voice, Socratic drilling, grading compressions, designing the syllabus.</td>
+            <td>Fact-heavy source Q&amp;A where citation matters</td>
+          </tr>
+          <tr>
+            <td><strong>Notion</strong></td><td><span class="k">THE TRANSCRIPT</span></td>
+            <td>Curriculum DB, lane status, receipts log. Already your Command Center.</td>
+            <td>Thinking. It's a record, not a workspace</td>
+          </tr>
+          <tr>
+            <td><strong>Claude Code + this repo</strong></td><td><span class="k">SHIPPING SURFACE</span></td>
+            <td>Public embeds, trackers, pages like this one.</td>
+            <td>Study</td>
+          </tr>
+          <tr>
+            <td><strong>Voice memo → transcript</strong></td><td><span class="k">THE FIELD</span></td>
+            <td>Post-training and post-shift downloads, while it's still hot.</td>
+            <td>Nothing — this one is pure upside</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="section-title sub">SETUP</h2>
+    <div class="section-subtitle">// ONE WEEKEND · TOTAL</div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Layer</th><th>What to build</th></tr></thead>
+        <tbody>
+          <tr><td><strong>NotebookLM</strong></td><td>One notebook per Lane A/B topic. <strong>Max 5 live.</strong> Retire the notebook when the cycle closes — don't accumulate.</td></tr>
+          <tr><td><strong>Claude Projects</strong></td><td>One per pillar, matching your existing L2 map. Each carries PATAI OS + voice guide + the current module spec in project knowledge — so you stop re-explaining yourself every session.</td></tr>
+          <tr><td><strong>Notion DB fields</strong></td><td><span class="k">Topic · Pillar · Lane · Current Level · Target Level · Cycle · Source Stack · Compressions · Receipts Shipped · Flagship Artifact · Next Action</span></td></tr>
+          <tr><td><strong>Capture inbox</strong></td><td>One place. Not two. Whichever one is already on your lock screen wins.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="section-title sub">ON BUILDING THE APP</h2>
+    <div class="section-subtitle">// THE ANSWER IS <span class="red">NOT YET</span></div>
+
+    <div class="callout">
+      <span class="tag">THE HONEST VERSION</span>
+      Building a learning app is the most satisfying way to avoid learning. It <em>feels</em> like the
+      highest-leverage move and is reliably the lowest &mdash; you'd spend the first cycle building a
+      container instead of putting anything in one. And you'd build the wrong thing, because you don't
+      yet know what the system needs. You'd be designing from imagination instead of from friction.
+      <br><br>
+      <strong>The rule:</strong> the app gets built after <strong>two completed 12-week cycles</strong>,
+      and only for the specific friction those cycles surfaced.
+      <br><br>
+      <strong>The reframe:</strong> the app is a <em>content topic</em>, not a prerequisite. Building it
+      in public is a Lane A cycle under #09 and #10 &mdash; every session is a receipt. You get the app
+      <em>and</em> the content, but only if you sequence it that way instead of building it first and
+      silently.
+    </div>
+  </section>
+
+  <!-- ============ 05 GUARDRAILS ============ -->
+  <section class="tab-panel" id="guard">
+    <h2 class="section-title">METRICS</h2>
+    <div class="section-subtitle">// THREE <span class="red">·</span> NOTHING ABOUT HOURS CONSUMED</div>
+
+    <div class="metrics">
+      <div class="metric"><div class="val">1</div><div class="lbl">COMPRESSION / WEEK</div><div class="sub">One page, your words, from memory</div></div>
+      <div class="metric"><div class="val">1</div><div class="lbl">RECEIPT / WEEK</div><div class="sub">Shipped in public. Ugly counts.</div></div>
+      <div class="metric"><div class="val">1</div><div class="lbl">CYCLE / QUARTER</div><div class="sub">Closed, reviewed, scored</div></div>
+    </div>
+
+    <p class="lede">
+      Hours consumed is a vanity metric. It measures <strong>how long you sat near information</strong>.
+      Books started, videos watched, sources saved — all the same illusion.
+    </p>
+
+    <h2 class="section-title sub">FAILURE MODES</h2>
+    <div class="section-subtitle">// EVERY ONE OF THESE FEELS LIKE PROGRESS</div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Trap</th><th>What it looks like</th><th>The fix</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Collector's fallacy</strong></td><td>40 saved sources, 0 finished</td><td>Hard cap of 5. Finish one before adding one.</td></tr>
+          <tr><td><strong>Consumption without receipt</strong></td><td>Great week of learning, nothing shipped</td><td>Ship rule is non-negotiable. Ugly and shipped beats polished and queued.</td></tr>
+          <tr><td><strong>All lanes hot</strong></td><td>All 10 topics "in progress"</td><td>One Lane A. Two Lane B. That's the whole allowance.</td></tr>
+          <tr><td><strong>System restarts</strong></td><td>Rebuilding the system instead of running it</td><td>The system is done. It's this page. Run it.</td></tr>
+          <tr><td><strong>Tool-building</strong></td><td>Learning paused while infrastructure gets built</td><td>Two cycles first. See Tooling.</td></tr>
+          <tr><td><strong>AI does the compressing</strong></td><td>Claude writes the one-pager, you feel productive</td><td>You write it. Claude grades it. No exceptions.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="section-title sub">FIRST 7 DAYS</h2>
+    <div class="section-subtitle">// THEN RUN THE LOOP FOR ELEVEN MORE WEEKS</div>
+
+    <div class="check-list" id="checklist">
+      <div class="check-item" data-id="c1"><div class="check-box"></div><div class="check-text"><span class="day">DAY 1</span>Create the Notion curriculum DB. Ten rows. Set lanes and target levels.</div></div>
+      <div class="check-item" data-id="c2"><div class="check-box"></div><div class="check-text"><span class="day">DAY 1</span>Pick the capture inbox. One place. Not two.</div></div>
+      <div class="check-item" data-id="c3"><div class="check-box"></div><div class="check-text"><span class="day">DAY 2</span>Write the module spec for Content Creation w/ AI. Build the 5-source stack.</div></div>
+      <div class="check-item" data-id="c4"><div class="check-box"></div><div class="check-text"><span class="day">DAY 2</span>Create the NotebookLM notebook. Load all five sources.</div></div>
+      <div class="check-item" data-id="c5"><div class="check-box"></div><div class="check-text"><span class="day">DAY 3</span>Set up Claude Projects — one per pillar, PATAI OS + voice guide loaded.</div></div>
+      <div class="check-item" data-id="c6"><div class="check-box"></div><div class="check-text"><span class="day">DAY 4</span>First interrogation session. 45 minutes. Questions, not summaries.</div></div>
+      <div class="check-item" data-id="c7"><div class="check-box"></div><div class="check-text"><span class="day">DAY 6</span>First compression. One page, from memory, sources closed.</div></div>
+      <div class="check-item" data-id="c8"><div class="check-box"></div><div class="check-text"><span class="day">DAY 7</span>Ship it. "Week 1 of learning X in public — here's the map."</div></div>
+    </div>
+    <button class="reset-btn" id="reset">↻ RESET CHECKLIST</button>
+  </section>
+
+  <footer class="footer">
+    <div>TFL // LEARNING OS <span class="red">·</span> v0.1 <span class="red">·</span> L03</div>
+    <div>LEARNING WITHOUT A RECEIPT DID NOT HAPPEN</div>
+    <div class="red">EARN THE LIFE. <span style="color:var(--bone-faint)">· @DYLANPATAI</span></div>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var tabs = document.querySelectorAll('.tab');
+  var panels = document.querySelectorAll('.tab-panel');
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      tabs.forEach(function (x) { x.classList.remove('active'); });
+      panels.forEach(function (p) { p.classList.remove('active'); });
+      t.classList.add('active');
+      document.getElementById(t.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  var KEY = 'tfl-curriculum-week1';
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { state = {}; }
+
+  var items = document.querySelectorAll('.check-item');
+  function render() {
+    items.forEach(function (el) {
+      el.classList.toggle('done', !!state[el.dataset.id]);
+    });
+  }
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+  }
+  items.forEach(function (el) {
+    el.addEventListener('click', function () {
+      state[el.dataset.id] = !state[el.dataset.id];
+      render(); save();
+    });
+  });
+  document.getElementById('reset').addEventListener('click', function () {
+    state = {}; render(); save();
+  });
+  render();
+})();
+</script>
+</body>
+</html>
