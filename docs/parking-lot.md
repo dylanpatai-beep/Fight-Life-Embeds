@@ -15,10 +15,11 @@ here instead of quietly expanding the plan. Items leave this file only when you 
 | # | Item | Why it's parked | Blocks |
 |---|---|---|---|
 | P-01 | **Beehiiv vs Substack** — newsletter split 2 sent on each | Platform consolidation is a business decision, not a Phase 1 one | Newsletter as a module output channel |
-| P-02 | **Department social media / outside-employment policy** — unread | Professional exposure on Paramedicine + Psychology content | Subject 4 and 8 modules |
+| P-02 | **Department social media / outside-employment policy** — unread | Downgraded 2026-08-09: subject 8 is private and subject 4 is a `lens`, so this is now a one-time read rather than a design constraint. Still worth doing — he's publicly identifiable as a firefighter-paramedic making health-adjacent content. | Subject 4 modules (far out) |
 | P-03 | ~~Psychedelics as published content~~ | ✅ **Resolved 2026-08-09** — subject 8 is `private (post-FD)`. Nothing publishes while Dylan is at the department. | — |
 | P-04 | **Instagram** — account exists, nothing ever posted | Untested channel; not routing curriculum through it yet | Nothing currently |
-| P-19 | **Gym filming limits — what exactly are they?** | Dylan confirmed filming is allowed "with limits" but didn't say what they are. MA-01's teach-back is a conversation, so it isn't blocked. | MA-02 onward: whether teach-back and short-form output can be one event |
+| P-19 | ~~Gym filming limits~~ | ✅ **Resolved 2026-08-09** — padwork/bagwork/demo unrestricted; sparring needs named per-person consent. Teach-back and output can be one event for MA-02→07. | — |
+| P-23 | **Sparring consent for MA-08** | The capstone is the only martial arts module needing sparring footage. Line up the specific training partners who are OK being filmed. Months of lead time at one module per set. | MA-08 only |
 | P-20 | **Revisit private-subject publishing at the FD exit (2028)** | Subjects 5–8 accumulate finished-but-unpublished output. At the exit there should be a back catalogue ready to release rather than a blank page. | Nothing until 2028 |
 
 ---

@@ -11,7 +11,8 @@
 | 2026-08-09 | **Shipping closes a module.** The three conditions make it DONE; publishing opens the next. | §3 |
 | 2026-08-09 | **Run MA-01 by hand before building the app.** Phase 2 deferred until one real module has run. | §7 Risk 2 |
 | 2026-08-09 | **No fight camp scheduled.** Full cadence, one module per set. | §5 |
-| 2026-08-09 | **Filming at the gym allowed, with limits** (limits not yet specified). | §6, §8 Q3 |
+| 2026-08-09 | **Filming: padwork, bagwork and everything else unrestricted; sparring only with specific consenting people.** | §6 |
+| 2026-08-09 | **Paramedicine is a `lens`, not a content vertical.** Personal education filtered into other subjects' output; the credential never fronts the work. | §2, §7 Risk 4 |
 
 ---
 
@@ -71,15 +72,37 @@ Every subject carries one of two statuses. This governs CREATE, and nothing else
 | Status | Meaning |
 |---|---|
 | `public` | Modules ship publicly. Normal output mapping (§6) applies. |
+| `lens` | Studied for real, **never the headline.** The education is personal; it shows up as rigor inside other subjects' output, filtered through the Fight Life lens. Never published as clinical instruction. |
 | `private (post-FD)` | Personal. **Output still gets made — it does not get published.** Held in the repo until after the fire department exit. |
 
 | Subject | Status |
 |---|---|
-| 1 Martial arts · 2 Cooking/diet/nutrition · 3 Fitness · 4 Paramedicine | `public` |
+| 1 Martial arts · 2 Cooking/diet/nutrition · 3 Fitness | `public` |
+| 4 Paramedicine | `lens` |
 | 5 Music/art/dance · 6 Travel/language · 7 Culture · 8 Psychology | `private (post-FD)` |
 
 Subjects 5–8 are not cut and not demoted. They run the same modules with the same gate.
 Only distribution waits.
+
+### What `lens` means in practice — **[LOCKED]** 2026-08-09, Dylan's framing
+
+> "Personalized education and filter that gets transferred into my output without it being
+> bold and or claiming too much — it's just personal education and then being taught through
+> my fight life lens."
+
+This is the correct read and it's structurally different from the other two statuses.
+Paramedicine is not a content vertical. It is **the reason the other subjects' content is
+right.** When a Fitness module explains why a recovery protocol works, the physiology behind
+it came from subject 4 — but the entry is a Fitness entry, in a fighter's voice, not a
+clinical lesson with a paramedic's credential stapled to it.
+
+**How a `lens` module closes.** Its output is folded into another subject's shipped artifact
+rather than standing alone. A subject-4 module on energy systems closes when the Fitness or
+Martial arts entry carrying that understanding ships. Same three gates, same rigor — it just
+doesn't get its own byline.
+
+**The rule that falls out of this:** the credential informs the work and never fronts it.
+No "as a paramedic…" framing, no clinical claims, no advice posture.
 
 ### 1. Martial arts — **THE VERTICAL SLICE** · `public`
 - **Scope:** The art and its transmission. Technique decomposed to the level where it can
@@ -98,11 +121,12 @@ Only distribution waits.
 - **NOT:** The art itself (#1). Not injury diagnosis or rehab prescription (#4 territory,
   and a professional-scope line).
 
-### 4. Paramedicine (meds, supplements, vitals, anatomy, pathophysiology and other science) — `public`
-- **Scope:** The clinical science. Your professional domain, and the credential that makes
-  you credible on every body-related subject in the list.
-- **NOT:** Anything patient-identifying, ever. Not clinical advice to an audience.
-  ⚠️ **This subject carries real professional and liability exposure — see §7, Risk 4.**
+### 4. Paramedicine (meds, supplements, vitals, anatomy, pathophysiology and other science) — `lens`
+- **Scope:** The clinical science, studied for real, as the filter that makes everything else
+  accurate. Personal education transferred into output through the Fight Life lens.
+- **NOT:** A content vertical. Not clinical instruction, not advice, not credential-fronted
+  content, and never anything patient-identifying. It does not get its own byline — it makes
+  the other subjects right. See the `lens` definition above.
 
 ### 5. Music / art / dance — `private (post-FD)`
 - **Scope:** [UNKNOWN — need input from Dylan] I don't know what this means to you.
@@ -248,7 +272,7 @@ filled once MA-01 produces the source map.
 | MA-05 | The switch kick | *(draft entry already exists in the library — this module finishes it)* | 2 sets | Library entry + short |
 | MA-06 | The long guard | *(draft entry already exists — same)* | 2 sets | Library entry + short |
 | MA-07 | Clinch entries | How do I get there, and how do I teach the entry rather than the position? | 2 sets | Library entry + long-form YouTube |
-| MA-08 | Putting it together under pressure | How does any of this survive someone trying to take your head off? | 2 sets | Long-form YouTube (subject capstone) |
+| MA-08 | Putting it together under pressure | How does any of this survive someone trying to take your head off? | 2 sets | Long-form YouTube (subject capstone) ⚠️ sparring footage — line up consent early |
 
 **MA-05 and MA-06 are deliberately placed where existing draft entries already sit.** You
 have two half-finished library entries. Rather than write new ones, those modules finish
@@ -387,9 +411,23 @@ Reasoning:
   git push — the infrastructure is built and idle. It also fixes your biggest content
   problem: a live library with zero entries in it.
 - The **short** is the reach artifact and it comes free off the teach-back if you film it.
-  Filming at the gym is allowed **with limits [LOCKED 2026-08-09]** — the limits themselves
-  are still [UNKNOWN] (§8 Q3). Until they're known, assume a short may need its own filming
-  slot on a deep day rather than riding the teach-back.
+
+#### Filming rights at the gym — **[LOCKED]** 2026-08-09
+
+| What | Status |
+|---|---|
+| Padwork, bagwork, technique demo, drilling, everything else | **Unrestricted.** Film freely. |
+| Sparring | **Only specific people who are OK with it.** Named consent, per person. |
+
+This is a better position than the pacing model assumed, and it's worth being explicit about
+what it buys: **technique breakdowns are padwork and demo work, so teach-back and output can
+be the same event for nearly every module.** Teach it, film it, that's the short. No separate
+filming slot on a deep day.
+
+Only one module in the martial arts sequence depends on sparring footage — **MA-08, putting
+it together under pressure.** That one needs consent lined up in advance, and it's the last
+module in the subject, so there's months of lead time. Everything from MA-02 to MA-07 is
+clear.
 - **Long-form** demands the 6-off window and real editing. One per subject as the capstone,
   never per module — per-module long-form is how this system dies in month two.
 - **Newsletter** is per-subject-ish and opportunistic. MA-01's output is a newsletter
@@ -465,15 +503,21 @@ exposure that the other subjects don't:
 - **Psychedelics (#8):** ✅ **Resolved 2026-08-09** by the private status. Subject 8
   publishes nothing while you're at the department.
 
-**Still open, and it's now the sharpest version of this risk:** subject 4 Paramedicine is
-`public`. It is the one subject that is simultaneously clinical, public, and tied to your
-professional licence. Your existing repos already show the right instinct (the Body
-project's *"NEVER prescribe, always frame as research"* rule). That instinct needs to become
-an explicit written publishing rule before subject 4 has a single module — and you need to
-have actually read your department's policy, not assumed it.
+**Subject 4 — mostly defused by the `lens` reframe ✅.** I had this scoped as "publishing
+clinical content under your own name," which carries real exposure. That was never the plan.
+Dylan's framing: personal education that filters into output through the Fight Life lens,
+without claiming too much. The credential informs the work and never fronts it.
 
-Martial arts, Cooking, and Fitness carry none of this. **Subject 4 is the only public
-subject that should wait on a policy read.**
+That is a materially lower-risk posture, and it's the same instinct already written into the
+Body project's *"NEVER prescribe, always frame as research"* rule. **The risk drops from
+structural to procedural.**
+
+**What's left is small but not zero:** you're still publicly identifiable as a
+firefighter-paramedic making health-adjacent content, and most departments have something to
+say about that. It's a one-time read of the policy, not a redesign. Do it before subject 4
+has a module — which, at one module per set, is a long way out.
+
+Martial arts, Cooking, and Fitness carry none of this.
 
 ### Risk 5 — The apply period is where this quietly breaks
 
@@ -502,25 +546,19 @@ Five resolved 2026-08-09 (see the decision log at the top). Seven still open.
 
 **Blocking martial arts modules MA-02 onward:**
 
-1. **Does your coach have a curriculum or teaching order?** If so, it replaces my sequence
-   in §4. MA-01 doesn't need this; MA-02 does.
+1. **Is there a house teaching order at your Muay Thai gym?** Not asking for a document —
+   just whether the coaches teach things in a set progression. If they do, it replaces my
+   §4 sequence. MA-01 doesn't need this; MA-02 does.
 2. **Supplements and mobility** — which subject owns them, given both have live library lanes?
-3. **What exactly are the filming limits at your gym?** You said yes-with-limits but not
-   what they are. MA-01's teach-back is a conversation, so this doesn't block now. From
-   MA-02 on, it decides whether teach-back and output can be one event — the single biggest
-   efficiency in the pacing model.
-
-**Blocking subject 4 (Paramedicine) — the one public subject with professional exposure:**
-
-4. **What does your department's social media / outside-employment policy actually say?**
-   Read it, don't assume it. (Risk 4)
 
 **Answerable whenever:**
 
-5. **Beehiiv or Substack?** Split 2/2. Pick one before newsletter becomes a recurring output.
-6. **Subject 5 (Music/art/dance)** — what does this mean to you? I still can't write a scope line.
-7. **Set-boundary convention** — do the 6 off start the day your fifth shift ends, or the
+3. **Beehiiv or Substack?** Split 2/2. Pick one before newsletter becomes a recurring output.
+4. **Subject 5 (Music/art/dance)** — what does this mean to you? I still can't write a scope line.
+5. **Set-boundary convention** — do the 6 off start the day your fifth shift ends, or the
    day after? (§5 worked example)
+6. **Department social media policy** — one-time read, before subject 4 has a module. Not
+   urgent at one module per set. (Risk 4)
 
 ---
 
