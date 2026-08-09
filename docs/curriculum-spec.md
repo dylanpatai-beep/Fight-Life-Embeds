@@ -1,7 +1,17 @@
 # THE FIGHT LIFE — CURRICULUM SPEC
 
-**Version** 0.1 · **Written** 2026-08-09 · **Status** DRAFT — awaiting Dylan's redline
-**Phase** 1 of 4. No code exists yet. Nothing here has been built.
+**Version** 0.2 · **Written** 2026-08-09 · **Status** Reviewed by Dylan; five decisions locked
+**Phase** 1 of 4. No app exists yet. The MA-01 paper kit is built — see `curriculum/README.md`.
+
+### Decision log
+
+| Date | Decision | Where it landed |
+|---|---|---|
+| 2026-08-09 | **Subjects 5–8 are private while Dylan is at the fire department.** Personal topics; no public content initially. May become publishable after the exit. | §2 publish status, §3 private variant, §7 Risk 1 |
+| 2026-08-09 | **Shipping closes a module.** The three conditions make it DONE; publishing opens the next. | §3 |
+| 2026-08-09 | **Run MA-01 by hand before building the app.** Phase 2 deferred until one real module has run. | §7 Risk 2 |
+| 2026-08-09 | **No fight camp scheduled.** Full cadence, one module per set. | §5 |
+| 2026-08-09 | **Filming at the gym allowed, with limits** (limits not yet specified). | §6, §8 Q3 |
 
 ---
 
@@ -54,49 +64,66 @@ The **scope** and **NOT** lines are **[DRAFT]** — definitional boundaries I wr
 subjects don't bleed into each other. Redline freely; they exist to stop scope creep, not
 to be precious.
 
-### 1. Martial arts — **THE VERTICAL SLICE**
+### Publish status — **[LOCKED]** 2026-08-09
+
+Every subject carries one of two statuses. This governs CREATE, and nothing else.
+
+| Status | Meaning |
+|---|---|
+| `public` | Modules ship publicly. Normal output mapping (§6) applies. |
+| `private (post-FD)` | Personal. **Output still gets made — it does not get published.** Held in the repo until after the fire department exit. |
+
+| Subject | Status |
+|---|---|
+| 1 Martial arts · 2 Cooking/diet/nutrition · 3 Fitness · 4 Paramedicine | `public` |
+| 5 Music/art/dance · 6 Travel/language · 7 Culture · 8 Psychology | `private (post-FD)` |
+
+Subjects 5–8 are not cut and not demoted. They run the same modules with the same gate.
+Only distribution waits.
+
+### 1. Martial arts — **THE VERTICAL SLICE** · `public`
 - **Scope:** The art and its transmission. Technique decomposed to the level where it can
   be taught, drilled, and published. Training, competing, disciplines.
 - **NOT:** Physical preparation for fighting (that's #3). Not fight-camp logistics, weight
   cuts, or session logging — that's the tfl-app's job, already built.
 
-### 2. Cooking / diet / nutrition
+### 2. Cooking / diet / nutrition — `public`
 - **Scope:** Food you make with your hands and the nutritional reasoning behind it. Recipes,
   fueling for camp, the firehouse-kitchen problem.
 - **NOT:** Supplements (#4). Not macro *tracking* — that's tfl-app + Apple Health.
 
-### 3. Fitness (s&c, body mechanics, mobility, calisthenics)
+### 3. Fitness (s&c, body mechanics, mobility, calisthenics) — `public`
 - **Scope:** The vehicle. Strength, conditioning, mobility, movement quality — the work that
   keeps the body available for the art.
 - **NOT:** The art itself (#1). Not injury diagnosis or rehab prescription (#4 territory,
   and a professional-scope line).
 
-### 4. Paramedicine (meds, supplements, vitals, anatomy, pathophysiology and other science)
+### 4. Paramedicine (meds, supplements, vitals, anatomy, pathophysiology and other science) — `public`
 - **Scope:** The clinical science. Your professional domain, and the credential that makes
   you credible on every body-related subject in the list.
 - **NOT:** Anything patient-identifying, ever. Not clinical advice to an audience.
   ⚠️ **This subject carries real professional and liability exposure — see §7, Risk 4.**
 
-### 5. Music / art / dance
+### 5. Music / art / dance — `private (post-FD)`
 - **Scope:** [UNKNOWN — need input from Dylan] I don't know what this means to you.
   Is it a practice you do, or a subject you study and document?
 - **NOT:** [UNKNOWN — depends on the above]
 
-### 6. Travel / language
+### 6. Travel / language — `private (post-FD)`
 - **Scope:** Places and the language to move through them. Thailand appears in your existing
   Command Center material as an anchor location.
 - **NOT:** [UNKNOWN — need input]
 
-### 7. Culture (religion, history, tradition)
+### 7. Culture (religion, history, tradition) — `private (post-FD)`
 - **Scope:** The context the art and the places live inside — including Muay Thai's own
   traditions.
 - **NOT:** [UNKNOWN — need input]
 
-### 8. Psychology (self help, meditation / breath work, psychedelics)
+### 8. Psychology (self help, meditation / breath work, psychedelics) — `private (post-FD)`
 - **Scope:** The operator. Mental practice, decision-making, the inner side of competing.
-- **NOT:** [UNKNOWN] ⚠️ The psychedelics component intersects with your professional
-  standing and platform content policies. Flagged in §7, Risk 4 — needs a decision from you
-  before it becomes a published module.
+- **NOT:** [UNKNOWN — need input] Where the boundary sits against subject 1's mental side.
+- ✅ **The psychedelics question is resolved by the private status.** Nothing here publishes
+  while you're at the department. The work still happens; it just doesn't go out.
 
 ### Boundary calls I need you to settle
 
@@ -104,7 +131,7 @@ to be precious.
 |---|---|
 | **Supplements** live in #4 (your list) but also have their own live library lane and the 62-entry Field Guide — your only published asset. Which subject owns them? | Determines where the Field Guide's follow-on content is authored. |
 | **Mobility** sits in #3 (your list) but has its own library lane. Same question. | Same. |
-| **Subjects 5, 6, 7** — are these *curriculum* (gated modules, teach-backs, worksheets) or are they *content* (things you document as you live them)? | This is the biggest structural question in the spec. See §7, Risk 1. |
+| ~~Subjects 5, 6, 7 — curriculum or content?~~ | ✅ **Resolved 2026-08-09.** Neither — they're curriculum with publishing suspended. See publish status above. |
 
 ---
 
@@ -135,15 +162,29 @@ A module is **DONE** when all three are true:
 - **G2** — taught to someone (name + date logged)
 - **G3** — applied for the module's defined period (start + end dates both recorded)
 
-### Shipping closes it — **[DRAFT]**
+### Shipping closes it — **[LOCKED]** 2026-08-09
 
-Your gate has three conditions. You also said *"nothing gets learned that doesn't get
-shipped."* I resolved these as: **the three conditions make a module DONE; shipping the
-output CLOSES it and opens the next one.** A done-but-unshipped module blocks the sequence.
+**The three conditions make a module DONE. Shipping the output CLOSES it and opens the
+next one.** A done-but-unshipped module blocks the sequence.
 
-That's a deliberate choice — it means the thing that stops your progress is an unpublished
-draft, which is exactly the failure mode a solo creator needs pressure against. **Redline
-this if you'd rather shipping be a fourth gate condition, or decoupled entirely.**
+That's deliberate: the thing that stops your progress is an unpublished draft — exactly the
+failure mode a solo creator needs pressure against.
+
+#### The private-subject variant — **[LOCKED]** 2026-08-09
+
+Subjects 5–8 are `private (post-FD)`. They have nothing to publish, so a naive reading of
+the rule would deadlock them forever.
+
+**For private subjects, the output is MADE but not PUBLISHED.** Written, drafted, filmed —
+finished to the same standard, committed to the repo, and held. The module closes on the
+artifact existing, not on it going out.
+
+> "Nothing gets learned that doesn't get **shipped**" becomes
+> "nothing gets learned that doesn't get **made**."
+
+The intent survives — you still have to compress it into something a stranger could use,
+which is where the learning actually happens. Only distribution waits. When you leave the
+department, there's a back catalogue sitting there ready, not a blank page.
 
 ### Gating rules
 
@@ -293,8 +334,9 @@ shift ends or the day after. Correct the dates; the structure doesn't change.
 
 - **A 48 or 72** → floor mode, automatically, by doing a smaller rep. No mode switch, no
   catch-up debt. **There is no catch-up in this system.** Catch-up is what kills streaks.
-- **Fight camp** → the whole curriculum drops to floor mode for the duration. Camp is the
-  application, not a competitor to it. Camp itself is tracked in tfl-app, which already
+- **Fight camp** → **none scheduled as of 2026-08-09 [LOCKED].** Full cadence runs until one
+  appears. When it does: the whole curriculum drops to floor mode for the duration. Camp is
+  the application, not a competitor to it. Camp itself is tracked in tfl-app, which already
   handles it.
 - **A missed day** → the streak counts *reps*, not days. You do not owe yesterday anything.
 
@@ -345,6 +387,9 @@ Reasoning:
   git push — the infrastructure is built and idle. It also fixes your biggest content
   problem: a live library with zero entries in it.
 - The **short** is the reach artifact and it comes free off the teach-back if you film it.
+  Filming at the gym is allowed **with limits [LOCKED 2026-08-09]** — the limits themselves
+  are still [UNKNOWN] (§8 Q3). Until they're known, assume a short may need its own filming
+  slot on a deep day rather than riding the teach-back.
 - **Long-form** demands the 6-off window and real editing. One per subject as the capstone,
   never per module — per-module long-form is how this system dies in month two.
 - **Newsletter** is per-subject-ish and opportunistic. MA-01's output is a newsletter
@@ -365,39 +410,37 @@ is the content calendar" actually means in practice.
 
 You asked for this specifically. Five things.
 
-### Risk 1 — Eight subjects is probably too many *as gated curriculum*
+### Risk 1 — RESOLVED, and my proposed fix was wrong ✅
 
-The three-part gate is expensive. Teach-back in particular requires **another human, on a
-schedule that fights yours.** That works naturally for Martial arts and Fitness — you're
-already in a gym with people. It works for Paramedicine — you have a crew. It does not
-obviously work for Music/art/dance, Travel/language, or Culture.
+I argued that subjects 5–7 should stop being curriculum and become "content you document."
+That was the wrong diagnosis. **The problem was never the gate — it was publishing.**
 
-**My recommendation:** split the list in two.
+Dylan's answer: those topics are personal, and he's a public servant at the fire department.
+No public content on them, at least initially. Possibly after the exit.
 
-- **Curriculum subjects** (gated modules, worksheets, teach-backs): 1, 2, 3, 4
-- **Content subjects** (documented as lived, no gate): 5, 6, 7
+That's a **timeline gate, not a scope cut**, and it's a better answer than mine. The
+subjects keep the full gate — worksheets, teach-backs, application. Only distribution is
+suspended. See §2 publish status and §3's private variant.
 
-That's not cutting them. It's admitting they're a different kind of thing, and it stops you
-from feeling behind on a gate that was never appropriate for them.
+**What remains true from the original concern:** the teach-back is still the most expensive
+condition in the system, because it needs another human. That's easy in a gym and easy at
+the firehouse. It's harder for subjects 5–7 — but a private subject's teach-back can be one
+person at a kitchen table, and that's enough. It was never the publishing that made
+teach-back hard.
 
-**#8 Psychology is genuinely ambiguous** — meditation and breath work are trainable and
-teachable (curriculum); psychedelics are not something to gate-and-publish (see Risk 4).
-Your call.
+### Risk 2 — ACCEPTED ✅ Building the app before running a module by hand
 
-### Risk 2 — Building the app before running a module by hand
+The classic trap, and the one I'd have bet on killing this project.
 
-This is the classic trap and it's the one I'd bet on killing this project.
+**Decision 2026-08-09: MA-01 runs by hand first.** Markdown module file, printed PDF,
+GoodNotes, ship the newsletter — during the set starting Tuesday 8/11. Phase 2 (the app)
+gets built afterward, from what actually happened.
 
-**Recommendation:** run MA-01 completely by hand during the set starting 8/11 — markdown
-file, printed PDF, GoodNotes, ship the newsletter. *Then* build the app in Phase 2 to fit
-what actually happened.
+The kit is built and in the repo: `curriculum/README.md`.
 
-You will learn more about what the worksheet needs from one real module than from any
-amount of my design. And if MA-01 by hand doesn't survive one set, **no app was going to
-save it** — that's information worth having before you spend six deep days building.
-
-Phase 2 happens either way. This just changes what it's built from: evidence instead of
-speculation.
+You'll learn more about what the worksheet needs from one real module than from any amount
+of my design. And if MA-01 by hand doesn't survive one set, **no app was going to save it** —
+which is worth knowing before six deep days go into building one.
 
 ### Risk 3 — Two half-finished apps
 
@@ -419,13 +462,18 @@ exposure that the other subjects don't:
 - **Scope-of-practice:** clinical education to a public audience can read as advice.
 - **Employer policy:** [UNKNOWN] — I don't know what your department's social media and
   outside-employment policies say. **Read them before Paramedicine ships anything.**
-- **Psychedelics (#8):** legal status varies by jurisdiction, sits badly against a public
-  safety employer, and platform policies restrict it. This is not a reason to drop it —
-  it's a reason to decide *deliberately* rather than discover the problem after publishing.
+- **Psychedelics (#8):** ✅ **Resolved 2026-08-09** by the private status. Subject 8
+  publishes nothing while you're at the department.
 
-Your existing repos already show good instincts here (the Body project's "NEVER prescribe,
-always frame as research" rule). That instinct needs to become an explicit publishing rule
-before subject 4 has a module. **I'd put this decision ahead of Phase 2.**
+**Still open, and it's now the sharpest version of this risk:** subject 4 Paramedicine is
+`public`. It is the one subject that is simultaneously clinical, public, and tied to your
+professional licence. Your existing repos already show the right instinct (the Body
+project's *"NEVER prescribe, always frame as research"* rule). That instinct needs to become
+an explicit written publishing rule before subject 4 has a single module — and you need to
+have actually read your department's policy, not assumed it.
+
+Martial arts, Cooking, and Fitness carry none of this. **Subject 4 is the only public
+subject that should wait on a policy read.**
 
 ### Risk 5 — The apply period is where this quietly breaks
 
@@ -443,48 +491,49 @@ The set-based pacing, the floor mode, the STOPPED AT line, and the one-constant-
 rule are all correct and cheap. The vertical slice discipline is correct. Using the existing
 library as the default output channel is correct and nearly free.
 
-**The system isn't too complicated. The list of subjects is too long, and the app is too
-early.** Those are the two things I'd change.
+**Both things I'd have changed are now addressed** — the subject list resolved into a
+publish gate rather than a cut, and the app is deferred behind one hand-run module.
 
 ---
 
 ## 8. OPEN QUESTIONS — WHAT I NEED FROM YOU
 
-Batched, in priority order.
+Five resolved 2026-08-09 (see the decision log at the top). Seven still open.
 
-**Blocking Phase 2:**
+**Blocking martial arts modules MA-02 onward:**
 
-1. **Do subjects 5–7 become "content" rather than gated curriculum?** (Risk 1)
-2. **Run MA-01 by hand first, or build the app now?** (Risk 2 — I recommend by hand)
-3. **Does shipping close a module, or is it a fourth gate condition?** (§3)
-4. **Supplements and mobility** — which subject owns them, given both have live library lanes?
+1. **Does your coach have a curriculum or teaching order?** If so, it replaces my sequence
+   in §4. MA-01 doesn't need this; MA-02 does.
+2. **Supplements and mobility** — which subject owns them, given both have live library lanes?
+3. **What exactly are the filming limits at your gym?** You said yes-with-limits but not
+   what they are. MA-01's teach-back is a conversation, so this doesn't block now. From
+   MA-02 on, it decides whether teach-back and output can be one event — the single biggest
+   efficiency in the pacing model.
 
-**Blocking Martial arts modules MA-02+:**
+**Blocking subject 4 (Paramedicine) — the one public subject with professional exposure:**
 
-5. **Does your coach have a curriculum or teaching order?** If so it replaces my sequence.
-6. **Can you film at your gym?** Determines whether teach-back and output can be one event —
-   which is most of the leverage in the pacing model.
-7. **Fight camp on the calendar?** [UNKNOWN] Changes everything about pacing.
-
-**Blocking Paramedicine and Psychology:**
-
-8. **What does your department's social media policy say?** (Risk 4)
-9. **Psychedelics — in or out as published content?** (Risk 4)
+4. **What does your department's social media / outside-employment policy actually say?**
+   Read it, don't assume it. (Risk 4)
 
 **Answerable whenever:**
 
-10. **Beehiiv or Substack?** You're split 2/2. Pick one before newsletter becomes a module output.
-11. **Subject 5 (Music/art/dance)** — what does this mean to you? I couldn't write a scope line.
-12. **Set-boundary convention** — do the 6 off start the day your fifth shift ends, or the day after? (§5 worked example)
+5. **Beehiiv or Substack?** Split 2/2. Pick one before newsletter becomes a recurring output.
+6. **Subject 5 (Music/art/dance)** — what does this mean to you? I still can't write a scope line.
+7. **Set-boundary convention** — do the 6 off start the day your fifth shift ends, or the
+   day after? (§5 worked example)
 
 ---
 
-## DEFINITION OF DONE — PHASE 1
+## DEFINITION OF DONE
 
-> **Done when Dylan can read this document top to bottom and approve or redline every
-> section without opening another file.**
+**Phase 1** ✅ *Done 2026-08-09* — Dylan read this document and locked five decisions.
 
-Phase 2 does not start until that happens.
+**Phase 1.5 (current)** — done when Dylan can open the MA-01 worksheet in GoodNotes on
+Tuesday's shift, fill a page in fifteen minutes, write STOPPED AT, close it, and resume cold
+two days later without reading anything else.
+
+**Phase 2 (the app)** — starts after MA-01 has actually run. Built from what happened, not
+from this document's guesses.
 
 ---
 

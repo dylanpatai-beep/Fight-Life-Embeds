@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>MA-01 — The Source Map — Worksheet</title>
+<style>
+  /* ============================================================
+     TFL CURRICULUM WORKSHEET — MA-01
+     Print target: US Letter, 6 pages, hand-filled in GoodNotes.
+     White paper on purpose. The site is black; printing the dark
+     theme burns ink and you can't write on it. Brand lives in the
+     type and the red rules.
+     ============================================================ */
+
+  @page { size: 8.5in 11in; margin: 0; }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --red: #CC0000;
+    --ink: #111111;
+    --grey: #6A6A6A;
+    --rule: #C4C4C4;
+    --mono: 'Liberation Mono', 'DejaVu Sans Mono', monospace;
+    --sans: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+  }
+
+  html, body { background: #fff; color: var(--ink); font-family: var(--sans); }
+
+  .page {
+    width: 8.5in;
+    height: 11in;
+    padding: 0.5in 0.55in 0.5in 0.55in;
+    position: relative;
+    page-break-after: always;
+    overflow: hidden;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ---------- header ---------- */
+  .hdr {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--mono);
+    font-size: 7.5pt;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--grey);
+    border-bottom: 3px solid var(--red);
+    padding-bottom: 5px;
+  }
+  .hdr .brand { color: var(--red); font-weight: bold; }
+  .hdr .pg { font-weight: bold; color: var(--ink); }
+
+  /* ---------- titles ---------- */
+  h1 {
+    font-size: 25pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    line-height: 1.02;
+    margin-top: 0.22in;
+  }
+  .kicker {
+    font-family: var(--mono);
+    font-size: 7.5pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: bold;
+    margin-top: 0.2in;
+  }
+  .instruct {
+    font-size: 9.5pt;
+    color: var(--grey);
+    line-height: 1.45;
+    margin-top: 6px;
+    max-width: 6.6in;
+  }
+  .instruct + .src { margin-top: 0.2in; }
+  .lbl {
+    font-family: var(--mono);
+    font-size: 7.5pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--grey);
+    font-weight: bold;
+    margin-top: 0.2in;
+    margin-bottom: 5px;
+  }
+  .lbl.hot { color: var(--red); }
+
+  /* ---------- ruled writing lines ---------- */
+  .ln { border-bottom: 1px solid var(--rule); height: 0.4in; }
+  .ln.tall { height: 0.46in; }
+
+  /* ---------- fixed-value fields (prefilled facts) ---------- */
+  .facts { width: 100%; border-collapse: collapse; margin-top: 0.16in; }
+  .facts td {
+    border-bottom: 1px solid var(--rule);
+    padding: 7px 0 6px;
+    font-size: 10pt;
+    vertical-align: bottom;
+  }
+  .facts td.k {
+    font-family: var(--mono);
+    font-size: 7.5pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--grey);
+    width: 1.75in;
+    font-weight: bold;
+  }
+  .facts td.v { font-weight: bold; }
+  .facts td.v.blank { color: var(--rule); }
+
+  /* ---------- the question ---------- */
+  .qbox {
+    border-left: 5px solid var(--red);
+    padding: 11px 0 11px 14px;
+    margin-top: 0.22in;
+  }
+  .qbox .q { font-size: 13.5pt; font-weight: bold; line-height: 1.3; }
+
+  /* ---------- checkbox rows ---------- */
+  .chk { display: flex; align-items: flex-start; gap: 11px; margin-bottom: 9px; }
+  .box {
+    width: 15px; height: 15px;
+    border: 1.5px solid var(--ink);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .box.red { border-color: var(--red); }
+  .chk .t { font-size: 10pt; line-height: 1.35; }
+  .chk .t b { font-family: var(--mono); font-size: 8.5pt; letter-spacing: 0.08em; }
+  .chk .t .sub { display: block; font-size: 8.5pt; color: var(--grey); margin-top: 2px; }
+
+  /* ---------- source blocks ---------- */
+  .src { margin-bottom: 0.17in; }
+  .src .n {
+    font-family: var(--mono);
+    font-size: 7.5pt;
+    color: var(--red);
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    margin-bottom: 2px;
+  }
+  .src .note {
+    font-family: var(--mono);
+    font-size: 6.5pt;
+    color: var(--grey);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 3px;
+    margin-bottom: 2px;
+  }
+
+  /* ---------- two-column field row ---------- */
+  .row2 { display: flex; gap: 0.4in; }
+  .row2 > div { flex: 1; }
+  .fieldline { border-bottom: 1px solid var(--rule); height: 0.4in; }
+
+  /* ---------- application log table ---------- */
+  .applog { width: 100%; border-collapse: collapse; margin-top: 4px; }
+  .applog th {
+    font-family: var(--mono);
+    font-size: 6.5pt;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--grey);
+    text-align: left;
+    padding-bottom: 4px;
+    border-bottom: 1.5px solid var(--red);
+    font-weight: bold;
+  }
+  .applog td { border-bottom: 1px solid var(--rule); height: 0.4in; }
+  .applog .dcol { width: 1.05in; border-right: 1px solid var(--rule); }
+
+  /* ---------- emphasis strip ---------- */
+  .strip {
+    border: 1.5px solid var(--red);
+    padding: 10px 13px;
+    margin-top: 0.2in;
+  }
+  .strip .st {
+    font-family: var(--mono);
+    font-size: 7.5pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: bold;
+    margin-bottom: 7px;
+  }
+
+  /* ---------- STOPPED AT footer ---------- */
+  .stopped {
+    position: absolute;
+    left: 0.55in;
+    right: 0.55in;
+    bottom: 0.42in;
+  }
+  .stopped .cap {
+    font-family: var(--mono);
+    font-size: 7pt;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: bold;
+    border-top: 2px solid var(--red);
+    padding-top: 5px;
+    display: block;
+  }
+  .stopped .wl { border-bottom: 1.5px solid #8A8A8A; height: 0.36in; }
+  .stopped .hint {
+    font-family: var(--mono);
+    font-size: 6.5pt;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin-top: 3px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================ PAGE 1 ============================ -->
+<div class="page">
+  <div class="hdr">
+    <span><span class="brand">THE FIGHT LIFE</span> &nbsp;·&nbsp; CURRICULUM WORKSHEET</span>
+    <span>MA-01 &nbsp;·&nbsp; MARTIAL ARTS</span>
+    <span class="pg">P.1 / 6</span>
+  </div>
+
+  <div class="kicker">Module 1 of 8 · Subject 1 · Public</div>
+  <h1>The Source<br/>Map</h1>
+
+  <div class="qbox">
+    <div class="q">Who am I actually learning this from,<br/>and what does the map of this subject look like?</div>
+  </div>
+
+  <table class="facts">
+    <tr><td class="k">Scope</td><td class="v">Assemble the real source map — people, books, videos, rooms — and publish the map itself</td></tr>
+    <tr><td class="k">Apply period</td><td class="v">1 set &nbsp;(~16 days)</td></tr>
+    <tr><td class="k">Output</td><td class="v">Newsletter — "What I'm actually studying, and why"</td></tr>
+    <tr><td class="k">Opened</td><td class="v blank">&nbsp;</td></tr>
+    <tr><td class="k">Closed</td><td class="v blank">&nbsp;</td></tr>
+  </table>
+
+  <div class="lbl">The gate — all three, then ship</div>
+  <div class="chk"><div class="box"></div><div class="t"><b>G1</b> &nbsp;Worksheet + notes complete<span class="sub">All six pages of this worksheet</span></div></div>
+  <div class="chk"><div class="box"></div><div class="t"><b>G2</b> &nbsp;Taught to someone<span class="sub">Name + date on p.4</span></div></div>
+  <div class="chk"><div class="box"></div><div class="t"><b>G3</b> &nbsp;Applied for one set<span class="sub">Start + end dates on p.5</span></div></div>
+  <div class="chk"><div class="box red"></div><div class="t"><b>CLOSE</b> &nbsp;Output shipped — opens MA-02<span class="sub">URL on p.6</span></div></div>
+
+  <div class="lbl">What I want out of this</div>
+  <div class="ln"></div>
+  <div class="ln"></div>
+  <div class="ln"></div>
+  <div class="ln"></div>
+  <div class="ln"></div>
+
+  <div class="stopped">
+    <span class="cap">Stopped at</span>
+    <div class="wl"></div>
+    <div class="hint">Write this before you close the page. Every time. It is how you come back after 72 hours.</div>
+  </div>
+</div>
+
+<!-- ============================ PAGE 2 ============================ -->
+<div class="page">
+  <div class="hdr">
+    <span><span class="brand">THE FIGHT LIFE</span> &nbsp;·&nbsp; CURRICULUM WORKSHEET</span>
+    <span>MA-01 &nbsp;·&nbsp; MARTIAL ARTS</span>
+    <span class="pg">P.2 / 6</span>
+  </div>
+
+  <div class="kicker">The work of this module</div>
+  <h1>The Sources</h1>
+  <div class="instruct">
+    Name them as they come. Coaches and the corrections they actually give you. Your shelf.
+    Your watch history. The fighters whose tape you rewatch. The training partner who explains
+    things well. What's real, not what sounds good — an honest short list beats a long one.
+  </div>
+
+  <div class="src">
+    <div class="n">01</div><div class="ln"></div>
+    <div class="note">What it actually gave me</div><div class="ln"></div>
+  </div>
+  <div class="src">
+    <div class="n">02</div><div class="ln"></div>
+    <div class="note">What it actually gave me</div><div class="ln"></div>
+  </div>
+  <div class="src">
+    <div class="n">03</div><div class="ln"></div>
+    <div class="note">What it actually gave me</div><div class="ln"></div>
+  </div>
+  <div class="src">
+    <div class="n">04</div><div class="ln"></div>
+    <div class="note">What it actually gave me</div><div class="ln"></div>
+  </div>
+  <div class="src">
+    <div class="n">05</div><div class="ln"></div>
+    <div class="note">What it actually gave me</div><div class="ln"></div>
+  </div>
+  <div class="src">
+    <div class="n">06</div><div class="ln"></div>
+    <div class="note">What it actually gave me</div><div class="ln"></div>
+  </div>
+
+  <div class="stopped">
+    <span class="cap">Stopped at</span>
+    <div class="wl"></div>
+    <div class="hint">One source named is a complete rep. Floor mode lives on this page.</div>
+  </div>
+</div>
+
+<!-- ============================ PAGE 3 ============================ -->
+<div class="page">
+  <div class="hdr">
+    <span><span class="brand">THE FIGHT LIFE</span> &nbsp;·&nbsp; CURRICULUM WORKSHEET</span>
+    <span>MA-01 &nbsp;·&nbsp; MARTIAL ARTS</span>
+    <span class="pg">P.3 / 6</span>
+  </div>
+
+  <div class="kicker">The compression step — where learning happens</div>
+  <h1>If I Had Five<br/>Minutes To Teach This</h1>
+  <div class="instruct">
+    Rank them. Which of these actually changed how you fight, and which ones just felt good to
+    consume? That ranking is the map. Say it the way you'd say it out loud to someone standing
+    in front of you.
+  </div>
+
+  <div class="ln tall"></div>
+  <div class="ln tall"></div>
+  <div class="ln tall"></div>
+  <div class="ln tall"></div>
+  <div class="ln tall"></div>
+  <div class="ln tall"></div>
+  <div class="ln tall"></div>
+  <div class="ln tall"></div>
+  <div class="ln tall"></div>
+  <div class="ln tall"></div>
+  <div class="ln tall"></div>
+  <div class="ln tall"></div>
+  <div class="ln tall"></div>
+
+  <div class="strip">
+    <div class="st">The one sentence</div>
+    <div class="ln"></div>
+  </div>
+
+  <div class="stopped">
+    <span class="cap">Stopped at</span>
+    <div class="wl"></div>
+    <div class="hint">Deep-day work. Don't force this one on a shift.</div>
+  </div>
+</div>
+
+<!-- ============================ PAGE 4 ============================ -->
+<div class="page">
+  <div class="hdr">
+    <span><span class="brand">THE FIGHT LIFE</span> &nbsp;·&nbsp; CURRICULUM WORKSHEET</span>
+    <span>MA-01 &nbsp;·&nbsp; MARTIAL ARTS</span>
+    <span class="pg">P.4 / 6</span>
+  </div>
+
+  <div class="kicker">Gate G2</div>
+  <h1>Teach-Back</h1>
+  <div class="instruct">
+    Show the map to your coach or a training partner and ask what's missing. That conversation
+    is the teach-back. It's a conversation, not a shoot — the gym's filming limits don't apply
+    to this page.
+  </div>
+
+  <div class="row2">
+    <div><div class="lbl">Who</div><div class="fieldline"></div></div>
+    <div><div class="lbl">When</div><div class="fieldline"></div></div>
+  </div>
+
+  <div class="lbl">What I showed them</div>
+  <div class="ln"></div>
+  <div class="ln"></div>
+  <div class="ln"></div>
+
+  <div class="lbl hot">What they said was missing</div>
+  <div class="instruct" style="margin-top:0;margin-bottom:5px;">The most valuable thing on this page. Write their words, not your summary.</div>
+  <div class="ln"></div>
+  <div class="ln"></div>
+  <div class="ln"></div>
+  <div class="ln"></div>
+
+  <div class="lbl hot">What didn't land</div>
+  <div class="ln"></div>
+  <div class="ln"></div>
+  <div class="ln"></div>
+  <div class="ln"></div>
+  <div class="ln"></div>
+  <div class="ln"></div>
+
+  <div class="stopped">
+    <span class="cap">Stopped at</span>
+    <div class="wl"></div>
+    <div class="hint">Log the conversation the same day. You will not remember their exact words tomorrow.</div>
+  </div>
+</div>
+
+<!-- ============================ PAGE 5 ============================ -->
+<div class="page">
+  <div class="hdr">
+    <span><span class="brand">THE FIGHT LIFE</span> &nbsp;·&nbsp; CURRICULUM WORKSHEET</span>
+    <span>MA-01 &nbsp;·&nbsp; MARTIAL ARTS</span>
+    <span class="pg">P.5 / 6</span>
+  </div>
+
+  <div class="kicker">Gate G3 · Apply period: 1 set (~16 days)</div>
+  <h1>Application</h1>
+  <div class="instruct">
+    Use the map to decide what you study, every day of the set. Then notice what you reached for
+    that <b>wasn't on it</b>. That gap is the most valuable thing this module produces.
+  </div>
+
+  <div class="row2">
+    <div><div class="lbl">Start date</div><div class="fieldline"></div></div>
+    <div><div class="lbl">End date</div><div class="fieldline"></div></div>
+  </div>
+
+  <table class="applog">
+    <tr><th class="dcol">Date</th><th>&nbsp;&nbsp;What I studied — and what I reached for that wasn't on the map</th></tr>
+    <tr><td class="dcol"></td><td></td></tr>
+    <tr><td class="dcol"></td><td></td></tr>
+    <tr><td class="dcol"></td><td></td></tr>
+    <tr><td class="dcol"></td><td></td></tr>
+    <tr><td class="dcol"></td><td></td></tr>
+    <tr><td class="dcol"></td><td></td></tr>
+    <tr><td class="dcol"></td><td></td></tr>
+    <tr><td class="dcol"></td><td></td></tr>
+    <tr><td class="dcol"></td><td></td></tr>
+    <tr><td class="dcol"></td><td></td></tr>
+    <tr><td class="dcol"></td><td></td></tr>
+    <tr><td class="dcol"></td><td></td></tr>
+  </table>
+
+  <div class="strip">
+    <div class="st">What changed</div>
+    <div class="ln"></div>
+    <div class="ln"></div>
+  </div>
+
+  <div class="stopped">
+    <span class="cap">Stopped at</span>
+    <div class="wl"></div>
+    <div class="hint">One dated line here is a complete rep on a shift day.</div>
+  </div>
+</div>
+
+<!-- ============================ PAGE 6 ============================ -->
+<div class="page">
+  <div class="hdr">
+    <span><span class="brand">THE FIGHT LIFE</span> &nbsp;·&nbsp; CURRICULUM WORKSHEET</span>
+    <span>MA-01 &nbsp;·&nbsp; MARTIAL ARTS</span>
+    <span class="pg">P.6 / 6</span>
+  </div>
+
+  <div class="kicker">Shipping closes the module and opens MA-02</div>
+  <h1>Output</h1>
+
+  <table class="facts">
+    <tr><td class="k">Channel</td><td class="v">Newsletter</td></tr>
+    <tr><td class="k">Format</td><td class="v">"What I'm actually studying, and why"</td></tr>
+  </table>
+
+  <div class="lbl hot">Platform — you are split 2 / 2. Decide before you send.</div>
+  <div style="display:flex; gap:0.5in; margin-top:4px;">
+    <div class="chk"><div class="box red"></div><div class="t">Beehiiv</div></div>
+    <div class="chk"><div class="box red"></div><div class="t">Substack</div></div>
+  </div>
+
+  <div class="lbl">The hook — first line, no wind-up</div>
+  <div class="ln"></div>
+  <div class="ln"></div>
+  <div class="ln"></div>
+
+  <div class="lbl">The structure</div>
+  <div class="ln"></div>
+  <div class="ln"></div>
+  <div class="ln"></div>
+  <div class="ln"></div>
+  <div class="ln"></div>
+  <div class="ln"></div>
+
+  <div class="row2" style="margin-top:0.1in;">
+    <div><div class="lbl">Shipped — date</div><div class="fieldline"></div></div>
+    <div><div class="lbl">URL</div><div class="fieldline"></div></div>
+  </div>
+
+  <div class="strip">
+    <div class="chk" style="margin-bottom:7px;"><div class="box red"></div><div class="t"><b>MA-01 CLOSED</b></div></div>
+    <div class="chk" style="margin-bottom:0;"><div class="box red"></div><div class="t"><b>MA-02 OPEN</b> — Stance &amp; structure</div></div>
+  </div>
+
+  <div class="stopped">
+    <span class="cap">Stopped at</span>
+    <div class="wl"></div>
+    <div class="hint">EARN THE LIFE.</div>
+  </div>
+</div>
+
+</body>
+</html>
