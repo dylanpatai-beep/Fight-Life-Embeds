@@ -32,10 +32,13 @@ it was.
 |---|---|
 | **Module** | MA-01 — The Source Map |
 | **Subject** | 1 · Martial arts |
-| **Set starts** | Tuesday 2026-08-11 |
-| **Apply period** | 1 set (~16 days) |
-| **Output** | Newsletter — "What I'm actually studying, and why" |
+| **Set** | Tue 2026-08-11 → Tue 2026-08-25. Shifts 8/11, 8/13, 8/15, 8/17, 8/19. Your 6 off: **Thu 8/20 → Tue 8/25.** |
+| **Apply period** | 1 set |
+| **Output** | Newsletter → **Substack** |
 | **Status** | OPEN |
+
+Those dates assume no overtime. One pickup and the column is wrong — which is fine, because
+the system runs on the next rep, never on a date.
 
 ---
 
@@ -64,10 +67,18 @@ Three gates, then ship. Full detail in `martial-arts/MA-01-source-map.md`.
 2. **G2** — show the map to your coach or a partner, ask what's missing, log what they said
 3. **G3** — use the map to pick what you study for one set; note what you reached for that
    wasn't on it
-4. **Ship** the newsletter → MA-01 closes, MA-02 opens
+4. **Ship** the newsletter to Substack → MA-01 closes, MA-02 opens
 
-⚠️ **Before you send: pick Beehiiv or Substack.** You're split 2/2 and it's on the worksheet
-as a checkbox for a reason.
+**In the teach-back conversation, ask one extra question: what's the gym's weekly technique
+progression?** That answer decides the whole MA-02→MA-08 sequence. It's prompted on
+worksheet p.4.
+
+---
+
+## Got a question about any of this?
+
+Open decisions live in one place: [`../docs/OPEN-QUESTIONS.md`](../docs/OPEN-QUESTIONS.md).
+Three open right now, none of them blocking this module.
 
 ---
 

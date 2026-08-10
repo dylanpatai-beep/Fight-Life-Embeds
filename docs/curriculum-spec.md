@@ -13,6 +13,10 @@
 | 2026-08-09 | **No fight camp scheduled.** Full cadence, one module per set. | §5 |
 | 2026-08-09 | **Filming: padwork, bagwork and everything else unrestricted; sparring only with specific consenting people.** | §6 |
 | 2026-08-09 | **Paramedicine is a `lens`, not a content vertical.** Personal education filtered into other subjects' output; the credential never fronts the work. | §2, §7 Risk 4 |
+| 2026-08-09 | **Newsletter platform: Substack.** Discovery beats operator tooling at this audience size. Migrate the Beehiiv list; revisit at ~1,000 subs. | §6 |
+| 2026-08-09 | **Ownership follows the numbered list** — supplements to #4, mobility to #3. Library lanes are destinations, not owners. | §2 |
+| 2026-08-09 | **The 6 days off start the day the 5th shift ends.** | §5 |
+| 2026-08-09 | **Gym runs a weekly technique progression** (unconfirmed shape) + session shape is shadow 3 rounds → drills/pads/bags. | §4 |
 
 ---
 
@@ -129,9 +133,10 @@ No "as a paramedic…" framing, no clinical claims, no advice posture.
   the other subjects right. See the `lens` definition above.
 
 ### 5. Music / art / dance — `private (post-FD)`
-- **Scope:** [UNKNOWN — need input from Dylan] I don't know what this means to you.
-  Is it a practice you do, or a subject you study and document?
-- **NOT:** [UNKNOWN — depends on the above]
+- **Scope:** A **practice — something you do**, not something you consume [LOCKED 2026-08-09].
+  Which discipline (music, art, dance, or more than one) is still [UNKNOWN] — see
+  `OPEN-QUESTIONS.md` Q2.
+- **NOT:** Appreciation or study of other people's work. This is your own making.
 
 ### 6. Travel / language — `private (post-FD)`
 - **Scope:** Places and the language to move through them. Thailand appears in your existing
@@ -153,9 +158,15 @@ No "as a paramedic…" framing, no clinical claims, no advice posture.
 
 | Question | Why it matters |
 |---|---|
-| **Supplements** live in #4 (your list) but also have their own live library lane and the 62-entry Field Guide — your only published asset. Which subject owns them? | Determines where the Field Guide's follow-on content is authored. |
-| **Mobility** sits in #3 (your list) but has its own library lane. Same question. | Same. |
+| ~~Supplements — which subject owns them?~~ | ✅ **Resolved 2026-08-09: #4 Paramedicine**, per your numbering. |
+| ~~Mobility — which subject owns it?~~ | ✅ **Resolved 2026-08-09: #3 Fitness**, per your numbering. |
 | ~~Subjects 5, 6, 7 — curriculum or content?~~ | ✅ **Resolved 2026-08-09.** Neither — they're curriculum with publishing suspended. See publish status above. |
+
+**Ownership vs. destination — the distinction that makes this work.** A library lane is a
+*publishing destination*, not an owner. Supplements are **studied** under subject 4, but
+subject 4 is a `lens` — so a supplements library entry **ships as public output under a
+public subject**, carrying subject 4's rigor without wearing its credential. Same shape as
+every other lens output: the science makes it right, the fighter's voice delivers it.
 
 ---
 
@@ -258,6 +269,25 @@ your Command Center pillar-01 file.
 dependency — what you must be able to explain before the next thing makes sense — not by
 what's hard to do.
 
+### What the gym actually runs — **[LOCKED]** 2026-08-09
+
+**Session shape:** shadow box 3 rounds → drills / pads / bags.
+
+That matters for two reasons beyond training:
+- **The drills/pads/bags block is your teach-back and filming window.** It's the teaching
+  portion of the session, and it's the part with unrestricted filming (§6). Teach it, film
+  it, that's the short — all inside a normal session.
+- Shadow rounds are the warm-up, not a working window. Don't plan module work there.
+
+**Technique progression: there is one, weekly — shape unconfirmed.** Your read was "it seems
+a weekly progression." So a progression exists but hasn't been written down or verified.
+
+**Therefore the MA-02 → MA-08 sequence below is explicitly provisional.** It's a working
+draft that gets replaced the moment the gym's real progression is known — which is a
+question you can answer for free: MA-01's teach-back already has you sitting with your coach
+asking what's missing from the source map. Ask what the weekly progression is in the same
+conversation. It's prompted on worksheet p.4. (`OPEN-QUESTIONS.md` Q1.)
+
 ### The sequence — **[DRAFT]**
 
 Every source slot below reads "named in MA-01" because that is the honest state. They get
@@ -342,17 +372,24 @@ advance. The system never asks you what day it is.
 
 ### A worked example — your next set
 
-Your set starts **Tuesday 2026-08-11** (you're at the end of your 6 off as of 2026-08-09).
+**Set boundary rule [LOCKED 2026-08-09]: the 6 days off start the day your fifth shift ends.**
 
-⚠️ **[UNKNOWN]** — I don't know whether you count the 6 off as starting the day your fifth
-shift ends or the day after. Correct the dates; the structure doesn't change.
+Your set starts **Tuesday 2026-08-11**. Computed from the rule:
 
-| Set position | Days | MA-01 work |
+| Set position | Dates | MA-01 work |
 |---|---|---|
-| Shifts 1–5 + rotation off days | Tue 8/11 → ~Thu 8/20 | Name sources, one per rep. Fill worksheet pp. 1–2. |
-| Deep days 1–2 | ~Fri 8/21 → Sat 8/22 | Distillation (p.3). Draft the newsletter. |
-| Deep day 3 | ~Sun 8/23 | Teach-back: show the map at the gym. Log p.4. |
-| Deep days 4–6 | ~Mon 8/24 → Wed 8/26 | Ship the newsletter. Close MA-01. Open MA-02. |
+| Rotation — 5 shifts (8/11, 8/13, 8/15, 8/17, 8/19) with off days between | **Tue 8/11 → Wed 8/19** | Name sources, one per rep. Worksheet pp.1–2. |
+| Deep days 1–2 | **Thu 8/20 → Fri 8/21** | Distillation (p.3). Draft the newsletter. |
+| Deep day 3 | **Sat 8/22** | Teach-back at the gym — show the map, ask what's missing, ask about the weekly progression. Log p.4. |
+| Deep days 4–6 | **Sun 8/23 → Tue 8/25** | Ship to Substack. Close MA-01. Open MA-02. |
+| Next set begins | **Wed 8/26** | |
+
+**One honest note on the arithmetic:** by your own boundary rule this set is **15 days**
+(9 rotation days + 6 off), not the ~16 you estimated. A one-day difference that changes no
+design — but the dates above are computed, not rounded, so they're right.
+
+**And these dates are a convenience, not a schedule.** One shift of overtime invalidates the
+whole column. The system runs on day-type and the next rep, never on a date.
 
 ### Overtime, camp, and the things that break schedules
 
@@ -395,7 +432,7 @@ Started now, that finishes in **mid-2029** — *after* your 2028 vesting date.
 | Channel | State | Friction |
 |---|---|---|
 | **Library site** (library.thefightlife.fit) | Live, 4 lanes, **0 published entries**, Field Guide is the only live content | **Lowest.** Publish = write markdown, `git push`. ~1 min to live. |
-| **Newsletter** | 4 sent — 2 Beehiiv, 2 Substack | Low. ⚠️ Split across two platforms → parking lot. |
+| **Newsletter** | 4 sent — 2 Beehiiv, 2 Substack. **Platform locked: Substack [LOCKED 2026-08-09].** | Low. Migrate the Beehiiv list over (CSV) — one deep-day task. |
 | **YouTube long-form** | 3 posted | **Highest.** Film + edit. 6-off window only. |
 | **YouTube Shorts / TikTok** | 1 short posted on each | Medium. Film on a deep day, batch. |
 | **Instagram** | Account exists, **nothing posted** | Unknown — never tested. |
@@ -540,25 +577,15 @@ publish gate rather than a cut, and the app is deferred behind one hand-run modu
 
 ---
 
-## 8. OPEN QUESTIONS — WHAT I NEED FROM YOU
+## 8. OPEN QUESTIONS
 
-Five resolved 2026-08-09 (see the decision log at the top). Seven still open.
+> **They live in their own file now: [`OPEN-QUESTIONS.md`](OPEN-QUESTIONS.md).**
 
-**Blocking martial arts modules MA-02 onward:**
+One short list, always current, with what each question blocks — plus a record of everything
+already decided. You shouldn't have to open a 400-line spec to answer a question, which is
+exactly the complaint that created that file.
 
-1. **Is there a house teaching order at your Muay Thai gym?** Not asking for a document —
-   just whether the coaches teach things in a set progression. If they do, it replaces my
-   §4 sequence. MA-01 doesn't need this; MA-02 does.
-2. **Supplements and mobility** — which subject owns them, given both have live library lanes?
-
-**Answerable whenever:**
-
-3. **Beehiiv or Substack?** Split 2/2. Pick one before newsletter becomes a recurring output.
-4. **Subject 5 (Music/art/dance)** — what does this mean to you? I still can't write a scope line.
-5. **Set-boundary convention** — do the 6 off start the day your fifth shift ends, or the
-   day after? (§5 worked example)
-6. **Department social media policy** — one-time read, before subject 4 has a module. Not
-   urgent at one module per set. (Risk 4)
+**As of 2026-08-09: three open, none blocking MA-01.**
 
 ---
 

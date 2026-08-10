@@ -59,6 +59,11 @@ That conversation *is* the teach-back, and it will improve the map. Log what the
 missing, not just that you did it. This is a conversation, not a filmed thing — the gym's
 filming limits don't apply here.
 
+**Ask one more thing in the same conversation: what is the gym's weekly technique
+progression?** You think there is one but it isn't confirmed. That answer decides the entire
+MA-02→MA-08 sequence — their order replaces my draft. It costs you one extra question inside
+a conversation you're already having. It's prompted on worksheet p.4.
+
 ---
 
 ## OUTPUT
@@ -67,7 +72,7 @@ filming limits don't apply here.
 |---|---|
 | **Channel** | Newsletter |
 | **Format** | "What I'm actually studying, and why" |
-| **Platform** | ⚠️ Beehiiv or Substack — **you're split 2/2 and haven't picked.** Decide before you send. |
+| **Platform** | **Substack** — locked 2026-08-09 |
 
 **Why a newsletter and not a library entry:** this is a narrative piece, not a technique
 breakdown. It requires no filming, and it tells an audience what the whole channel is about

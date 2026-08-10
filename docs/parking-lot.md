@@ -14,7 +14,9 @@ here instead of quietly expanding the plan. Items leave this file only when you 
 
 | # | Item | Why it's parked | Blocks |
 |---|---|---|---|
-| P-01 | **Beehiiv vs Substack** — newsletter split 2 sent on each | Platform consolidation is a business decision, not a Phase 1 one | Newsletter as a module output channel |
+| P-01 | ~~Beehiiv vs Substack~~ | ✅ **Resolved 2026-08-09 — Substack.** Discovery beats operator tooling at this audience size. | — |
+| P-24 | **Migrate the Beehiiv subscribers to Substack** | Your list is split across two platforms. CSV export → import, one deep-day task. Until it's done, half your readers don't get the newsletter. | Do before MA-01 ships, or accept a partial send |
+| P-25 | **Revisit the newsletter platform at ~1,000 subscribers** | That's where Beehiiv's segmentation, referral program and ad network start earning their keep. Migration is a CSV both directions — not a one-way door. | Nothing until then |
 | P-02 | **Department social media / outside-employment policy** — unread | Downgraded 2026-08-09: subject 8 is private and subject 4 is a `lens`, so this is now a one-time read rather than a design constraint. Still worth doing — he's publicly identifiable as a firefighter-paramedic making health-adjacent content. | Subject 4 modules (far out) |
 | P-03 | ~~Psychedelics as published content~~ | ✅ **Resolved 2026-08-09** — subject 8 is `private (post-FD)`. Nothing publishes while Dylan is at the department. | — |
 | P-04 | **Instagram** — account exists, nothing ever posted | Untested channel; not routing curriculum through it yet | Nothing currently |
